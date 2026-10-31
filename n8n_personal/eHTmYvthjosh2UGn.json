@@ -1,0 +1,297 @@
+{
+  "active": true,
+  "activeVersion": {
+    "versionId": "1f8ab1f3-bfe3-443e-a9a6-f8a1207112c5",
+    "workflowId": "eHTmYvthjosh2UGn",
+    "nodes": [
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "https://appn8n.gianmarcorusher.com/webhook/de74a82f-0328-4cb7-a89e-4930ab979308",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ $('Error Trigger').item.json.toJsonString() }}",
+          "options": {}
+        },
+        "id": "e3f9f553-13aa-4835-873b-6d3e3e2cd28b",
+        "name": "enviar error",
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.3,
+        "position": [
+          432,
+          0
+        ]
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "1cdfac0f-6072-4110-9fa1-649372cc381b",
+                "leftValue": "={{ $json.execution.id }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "exists",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "id": "7867c637-5296-41a0-8647-19ecb400fc4f",
+        "name": "Filter",
+        "type": "n8n-nodes-base.filter",
+        "typeVersion": 2.3,
+        "position": [
+          224,
+          0
+        ]
+      },
+      {
+        "parameters": {},
+        "id": "74b4910c-a127-4b2e-b82b-de231ae54d5c",
+        "name": "Error Trigger",
+        "type": "n8n-nodes-base.errorTrigger",
+        "typeVersion": 1,
+        "position": [
+          0,
+          0
+        ]
+      }
+    ],
+    "connections": {
+      "Filter": {
+        "main": [
+          [
+            {
+              "node": "enviar error",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Error Trigger": {
+        "main": [
+          [
+            {
+              "node": "Filter",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "nodeGroups": [],
+    "authors": "Jose Caceres",
+    "name": "Version 1f8ab1f3",
+    "description": "",
+    "autosaved": true,
+    "createdAt": "2026-10-31T21:17:56.787Z",
+    "updatedAt": "2026-10-31T21:17:59.380Z"
+  },
+  "activeVersionId": "1f8ab1f3-bfe3-443e-a9a6-f8a1207112c5",
+  "connections": {
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "enviar error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-10-31T21:13:54.814Z",
+  "id": "eHTmYvthjosh2UGn",
+  "isArchived": false,
+  "meta": null,
+  "name": "Aviso de errores",
+  "nodeGroups": [],
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://appn8n.gianmarcorusher.com/webhook/de74a82f-0328-4cb7-a89e-4930ab979308",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $('Error Trigger').item.json.toJsonString() }}",
+        "options": {}
+      },
+      "id": "e3f9f553-13aa-4835-873b-6d3e3e2cd28b",
+      "name": "enviar error",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        432,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "1cdfac0f-6072-4110-9fa1-649372cc381b",
+              "leftValue": "={{ $json.execution.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "7867c637-5296-41a0-8647-19ecb400fc4f",
+      "name": "Filter",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        224,
+        0
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "74b4910c-a127-4b2e-b82b-de231ae54d5c",
+      "name": "Error Trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    }
+  ],
+  "pinData": {
+    "Error Trigger": [
+      {
+        "json": {
+          "execution": {
+            "id": "268823",
+            "url": "https://workflow/neEoUcYYPOuBSjo7/executions/268823",
+            "error": {
+              "level": "info",
+              "shouldReport": false,
+              "description": "Please recreate the credential or ask its owner to share it with you.",
+              "tags": {},
+              "node": {
+                "parameters": {
+                  "curlImport": "",
+                  "method": "GET",
+                  "url": "=https://lmreinvenciondigital.kommo.com/api/v4/leads/pipelines",
+                  "authentication": "genericCredentialType",
+                  "genericAuthType": "oAuth2Api",
+                  "provideSslCertificates": false,
+                  "sendQuery": false,
+                  "sendHeaders": false,
+                  "sendBody": false,
+                  "options": {
+                    "response": {
+                      "response": {
+                        "fullResponse": false,
+                        "neverError": false,
+                        "responseFormat": "json"
+                      }
+                    }
+                  },
+                  "infoMessage": ""
+                },
+                "id": "2fbd8488-bd62-486b-8f11-b77c029aaee1",
+                "name": "Obtener funnels",
+                "type": "n8n-nodes-base.httpRequest",
+                "typeVersion": 4.2,
+                "position": [
+                  -160,
+                  -496
+                ],
+                "credentials": {
+                  "oAuth2Api": {
+                    "id": "dS3g1PzpMzI5kzgH",
+                    "name": "kommo"
+                  }
+                }
+              },
+              "project": {
+                "updatedAt": "2026-09-17T19:56:24.896Z",
+                "createdAt": "2026-09-17T19:54:25.840Z",
+                "id": "geEYBV64vpCi377r",
+                "name": "Reinvencion Digital <lm.reinvenciondigital@gmail.com>",
+                "type": "personal",
+                "icon": null,
+                "description": null,
+                "customTelemetryTags": [],
+                "creatorId": "99c2b502-656e-4ac6-b838-e38695f4bd2a"
+              },
+              "message": "Node \"Obtener funnels\" does not have access to the credential",
+              "stack": "Error: Node \"Obtener funnels\" does not have access to the credential\n    at CredentialsPermissionChecker.check (/usr/local/lib/node_modules/n8n/src/executions/pre-execution-checks/credentials-permission-checker.ts:287:6)\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at startExecution (/usr/local/lib/node_modules/n8n/src/workflow-execute-additional-data.ts:682:4)\n    at Object.executeWorkflow (/usr/local/lib/node_modules/n8n/src/workflow-execute-additional-data.ts:409:9)\n    at ExecuteContext.executeWorkflow (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file++++home+runner+_work+n8n+n8n+packages+core/node_modules/n8n-core/src/execution-engine/node-execution-context/base-execute-context.ts:187:13)\n    at ExecuteContext.execute (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-nodes-base@file++++home+runner+_work+n8n+n8n+packages+nodes-base/node_modules/n8n-nodes-base/nodes/ExecuteWorkflow/ExecuteWorkflow/ExecuteWorkflow.node.ts:488:50)\n    at WorkflowExecute.executeNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file++++home+runner+_work+n8n+n8n+packages+core/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1154:8)\n    at WorkflowExecute.runNode (/usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file++++home+runner+_work+n8n+n8n+packages+core/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:1456:11)\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file++++home+runner+_work+n8n+n8n+packages+core/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:2389:27\n    at /usr/local/lib/node_modules/n8n/node_modules/.pnpm/n8n-core@file++++home+runner+_work+n8n+n8n+packages+core/node_modules/n8n-core/src/execution-engine/workflow-execute.ts:2870:11"
+            },
+            "lastNodeExecuted": "Obtener funnels",
+            "mode": "integrated"
+          },
+          "workflow": {
+            "id": "neEoUcYYPOuBSjo7",
+            "name": "Sincronizacion funnels"
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "repo_name": "n8n_backups",
+  "repo_owner": "Yakurumi61",
+  "repo_path": "n8n_personal",
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "shared": [
+    {
+      "role": "workflow:owner",
+      "workflowId": "eHTmYvthjosh2UGn",
+      "projectId": "a2ZB1ulA3n4SHivr",
+      "createdAt": "2026-10-31T21:13:54.814Z",
+      "updatedAt": "2026-10-31T21:13:54.814Z"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-10-31T21:17:56.778Z",
+  "versionId": "1f8ab1f3-bfe3-443e-a9a6-f8a1207112c5"
+}
