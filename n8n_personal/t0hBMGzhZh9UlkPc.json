@@ -1,0 +1,380 @@
+{
+  "active": true,
+  "activeVersion": {
+    "versionId": "2607ec5c-cd0d-47d1-867c-114f05913fc3",
+    "workflowId": "t0hBMGzhZh9UlkPc",
+    "nodes": [
+      {
+        "parameters": {
+          "filters": {},
+          "requestOptions": {}
+        },
+        "id": "982a2c92-cf6a-4462-8546-bd300c1dedd5",
+        "name": "n8n",
+        "type": "n8n-nodes-base.n8n",
+        "typeVersion": 1,
+        "position": [
+          256,
+          0
+        ],
+        "credentials": {
+          "n8nApi": {
+            "id": "4WgnwAr3gafXzzKi",
+            "name": "n8n_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "id": "1225c482-f78c-4067-b489-a466a92d81e4",
+        "name": "Loop Over Items",
+        "type": "n8n-nodes-base.splitInBatches",
+        "typeVersion": 3,
+        "position": [
+          480,
+          0
+        ]
+      },
+      {
+        "parameters": {
+          "rule": {
+            "interval": [
+              {
+                "triggerAtMinute": {}
+              }
+            ]
+          }
+        },
+        "id": "5ad77f3e-776c-4806-998e-b1328a561f4f",
+        "name": "Schedule Trigger",
+        "type": "n8n-nodes-base.scheduleTrigger",
+        "typeVersion": 1.2,
+        "position": [
+          0,
+          80
+        ]
+      },
+      {
+        "parameters": {
+          "amount": 3
+        },
+        "id": "797d537e-ba79-4670-a9e3-198017d57e01",
+        "name": "Wait",
+        "webhookId": "8586c545-fb7a-46f3-97dc-bbe21aab9f21",
+        "type": "n8n-nodes-base.wait",
+        "typeVersion": 1.1,
+        "position": [
+          960,
+          32
+        ]
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "U38MTFY74Ace1qZC",
+            "mode": "list",
+            "cachedResultUrl": "/workflow/U38MTFY74Ace1qZC",
+            "cachedResultName": "Iniciar backups"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {},
+            "matchingColumns": [],
+            "schema": [],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": true
+          },
+          "options": {}
+        },
+        "id": "3702a50b-4b9c-46bc-a3bb-9a3836a3c31b",
+        "name": "Call 'Iniciar backups'",
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "alwaysOutputData": false,
+        "position": [
+          720,
+          32
+        ],
+        "onError": "continueErrorOutput"
+      }
+    ],
+    "connections": {
+      "n8n": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Loop Over Items": {
+        "main": [
+          [],
+          [
+            {
+              "node": "Call 'Iniciar backups'",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Schedule Trigger": {
+        "main": [
+          [
+            {
+              "node": "n8n",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Wait": {
+        "main": [
+          [
+            {
+              "node": "Loop Over Items",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Call 'Iniciar backups'": {
+        "main": [
+          [
+            {
+              "node": "Wait",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Wait",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "nodeGroups": [],
+    "authors": "Jose Caceres",
+    "name": "Version 2607ec5c",
+    "description": "",
+    "autosaved": true,
+    "createdAt": "2026-10-31T21:31:17.852Z",
+    "updatedAt": "2026-10-31T21:34:15.148Z"
+  },
+  "activeVersionId": "2607ec5c-cd0d-47d1-867c-114f05913fc3",
+  "connections": {
+    "n8n": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Call 'Iniciar backups'",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "n8n",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call 'Iniciar backups'": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-10-31T21:29:53.304Z",
+  "id": "t0hBMGzhZh9UlkPc",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Ejecutar backups escenarios",
+  "nodeGroups": [],
+  "nodes": [
+    {
+      "parameters": {
+        "filters": {},
+        "requestOptions": {}
+      },
+      "id": "982a2c92-cf6a-4462-8546-bd300c1dedd5",
+      "name": "n8n",
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        256,
+        0
+      ],
+      "credentials": {
+        "n8nApi": {
+          "id": "4WgnwAr3gafXzzKi",
+          "name": "n8n_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "1225c482-f78c-4067-b489-a466a92d81e4",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        480,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtMinute": {}
+            }
+          ]
+        }
+      },
+      "id": "5ad77f3e-776c-4806-998e-b1328a561f4f",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "id": "797d537e-ba79-4670-a9e3-198017d57e01",
+      "name": "Wait",
+      "webhookId": "8586c545-fb7a-46f3-97dc-bbe21aab9f21",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        960,
+        32
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "U38MTFY74Ace1qZC",
+          "mode": "list",
+          "cachedResultUrl": "/workflow/U38MTFY74Ace1qZC",
+          "cachedResultName": "Iniciar backups"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "options": {}
+      },
+      "id": "3702a50b-4b9c-46bc-a3bb-9a3836a3c31b",
+      "name": "Call 'Iniciar backups'",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "alwaysOutputData": false,
+      "position": [
+        720,
+        32
+      ],
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "n8n_backups",
+  "repo_owner": "Yakurumi61",
+  "repo_path": "n8n_personal",
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "shared": [
+    {
+      "role": "workflow:owner",
+      "workflowId": "t0hBMGzhZh9UlkPc",
+      "projectId": "a2ZB1ulA3n4SHivr",
+      "createdAt": "2026-10-31T21:29:53.304Z",
+      "updatedAt": "2026-10-31T21:29:53.304Z"
+    }
+  ],
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": [
+        null
+      ],
+      "recurrenceRuleSignatures": [
+        null
+      ]
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-10-31T21:31:17.844Z",
+  "versionId": "2607ec5c-cd0d-47d1-867c-114f05913fc3"
+}
