@@ -1,0 +1,274 @@
+{
+  "active": false,
+  "activeVersion": null,
+  "activeVersionId": null,
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "GitHub",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub": {
+      "main": [
+        [
+          {
+            "node": "Adquirir escenario",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Adquirir escenario": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n8n": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "n8n",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-10-31T21:37:04.328Z",
+  "id": "Br1cuLh0fJLxfZPt",
+  "isArchived": false,
+  "meta": null,
+  "name": "Recuperar escenarios de github",
+  "nodeGroups": [],
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "2d51e310-4233-4e54-a79e-84fbb9d407c4",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "list",
+        "owner": {
+          "__rl": true,
+          "value": "Gianmarco-Rusher",
+          "mode": "list",
+          "cachedResultName": "Gianmarco-Rusher",
+          "cachedResultUrl": "https://github.com/Gianmarco-Rusher"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "n8n_backups",
+          "mode": "list",
+          "cachedResultName": "n8n_backups",
+          "cachedResultUrl": "https://github.com/Gianmarco-Rusher/n8n_backups"
+        },
+        "filePath": "n8n_keio_copias"
+      },
+      "id": "c176961f-f82b-4a5b-bf81-7bc59090aa0c",
+      "name": "GitHub",
+      "webhookId": "7f17b9c1-18a3-4c30-9003-5accb1dafc7f",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        224,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "workflowObject": "={{ $json.data }}",
+        "requestOptions": {}
+      },
+      "id": "904e8270-664b-4369-9c16-21b1894f30f4",
+      "name": "n8n",
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        1568,
+        80
+      ],
+      "credentials": {
+        "n8nApi": {
+          "id": "4WgnwAr3gafXzzKi",
+          "name": "n8n_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.download_url }}",
+        "options": {}
+      },
+      "id": "f495c05c-b18f-4a69-b912-4b92f12c781f",
+      "name": "Adquirir escenario",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        448,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "74aad62c-51b9-4886-98e6-5477b4e6774b",
+      "name": "Loop Over Items",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        672,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "items[0].json.data.settings.callerPolicy = undefined;\nreturn items;"
+      },
+      "id": "cabbaed9-abcc-449e-8ff1-d8d673736b33",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1104,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e70f4c5f-9b4e-4d94-a2f6-0ecc3a0ce09e",
+              "name": "data",
+              "value": "={{ $json.data }}",
+              "type": "object"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "69496aaa-3969-446a-aa34-ce56a6b64cbd",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        912,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ea9a4035-f0ee-4741-9234-f2ceb1807d14",
+              "name": "data",
+              "value": "={{ $json.data }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b4856730-01ef-46ca-908a-b21d6a28d39b",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1328,
+        80
+      ]
+    }
+  ],
+  "pinData": {},
+  "repo_name": "n8n_backups",
+  "repo_owner": "Yakurumi61",
+  "repo_path": "n8n_personal",
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "shared": [
+    {
+      "role": "workflow:owner",
+      "workflowId": "Br1cuLh0fJLxfZPt",
+      "projectId": "a2ZB1ulA3n4SHivr",
+      "createdAt": "2026-10-31T21:37:04.328Z",
+      "updatedAt": "2026-10-31T21:37:04.328Z"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2026-10-31T21:37:04.328Z",
+  "versionId": "6c9da816-22bc-461c-9486-3c7edf83297a"
+}
