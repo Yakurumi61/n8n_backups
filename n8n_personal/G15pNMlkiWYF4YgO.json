@@ -1,0 +1,115 @@
+{
+  "active": true,
+  "activeVersion": {
+    "versionId": "114e04d5-90ee-464f-8bab-4945fb5b9f65",
+    "workflowId": "G15pNMlkiWYF4YgO",
+    "nodes": [
+      {
+        "parameters": {
+          "formTitle": "Formulario de administracion",
+          "formFields": {
+            "values": [
+              {
+                "fieldLabel": "¿Que vas hacer?",
+                "fieldType": "radio",
+                "fieldOptions": {
+                  "values": [
+                    {
+                      "option": "Gestión de rutas"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "options": {
+            "appendAttribution": false,
+            "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #000000;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #454545;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #ffffff;\n\t--color-header: #ffffff;\n\t--color-label: #ffffff;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #0000000;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #FFA500;\n\t--color-submit-btn-text: #000000;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #FFA500;\n\t--color-html-text: #ffffff;\n\t--color-html-link: #ffffff;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
+          }
+        },
+        "type": "n8n-nodes-base.formTrigger",
+        "typeVersion": 2.6,
+        "position": [
+          0,
+          0
+        ],
+        "id": "87970efa-e696-4028-84ff-08751400b2c3",
+        "name": "On form submission",
+        "webhookId": "4d4f906c-ba2a-4c86-9da1-fe9d7593439a"
+      }
+    ],
+    "connections": {},
+    "nodeGroups": [],
+    "authors": "Jose Caceres",
+    "name": "Version 114e04d5",
+    "description": "",
+    "autosaved": true,
+    "createdAt": "2026-10-31T23:45:23.453Z",
+    "updatedAt": "2026-10-31T23:45:27.128Z"
+  },
+  "activeVersionId": "114e04d5-90ee-464f-8bab-4945fb5b9f65",
+  "connections": {},
+  "createdAt": "2026-10-31T23:42:35.036Z",
+  "id": "G15pNMlkiWYF4YgO",
+  "isArchived": false,
+  "meta": null,
+  "name": "Form. de administracion",
+  "nodeGroups": [],
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Formulario de administracion",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "¿Que vas hacer?",
+              "fieldType": "radio",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Gestión de rutas"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false,
+          "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #000000;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #454545;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #ffffff;\n\t--color-header: #ffffff;\n\t--color-label: #ffffff;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #0000000;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #FFA500;\n\t--color-submit-btn-text: #000000;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #FFA500;\n\t--color-html-text: #ffffff;\n\t--color-html-link: #ffffff;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        0,
+        0
+      ],
+      "id": "87970efa-e696-4028-84ff-08751400b2c3",
+      "name": "On form submission",
+      "webhookId": "4d4f906c-ba2a-4c86-9da1-fe9d7593439a"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "n8n_backups",
+  "repo_owner": "Yakurumi61",
+  "repo_path": "n8n_personal",
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "shared": [
+    {
+      "role": "workflow:owner",
+      "workflowId": "G15pNMlkiWYF4YgO",
+      "projectId": "a2ZB1ulA3n4SHivr",
+      "createdAt": "2026-10-31T23:42:35.036Z",
+      "updatedAt": "2026-10-31T23:42:35.036Z"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-10-31T23:45:23.445Z",
+  "versionId": "114e04d5-90ee-464f-8bab-4945fb5b9f65"
+}
