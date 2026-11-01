@@ -1,0 +1,1743 @@
+{
+  "active": true,
+  "activeVersion": {
+    "versionId": "ba049bd7-4e94-4cc8-b885-656e01b1e4cd",
+    "workflowId": "KkLUflvUBsrHxPkG",
+    "nodes": [
+      {
+        "parameters": {
+          "formTitle": "Pedido de Hielo Yaku Rumi",
+          "formDescription": "Nuestros horarios de atención ☝🏼\n\nLunes a Sábado \n8am - 1pm/4pm - 7pm\n\nDomingos y Feriados \n8am - 1pm \n\n*Si nos escribiste fuera de horario, por favor deja tus datos que nosotros nos podremos en contacto contigo \n\n*Recuerda que la recepción de pedido es hasta las 6pm ",
+          "formFields": {
+            "values": [
+              {
+                "fieldLabel": "Tu numero de celular",
+                "fieldType": "number",
+                "requiredField": true
+              }
+            ]
+          },
+          "options": {
+            "appendAttribution": false,
+            "buttonLabel": "Realizar pedido",
+            "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #000000;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #454545;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #ffffff;\n\t--color-header: #ffffff;\n\t--color-label: #ffffff;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #0000000;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #FFA500;\n\t--color-submit-btn-text: #000000;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #FFA500;\n\t--color-html-text: #ffffff;\n\t--color-html-link: #ffffff;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
+          }
+        },
+        "type": "n8n-nodes-base.formTrigger",
+        "typeVersion": 2.6,
+        "position": [
+          464,
+          -48
+        ],
+        "id": "a48963d5-0c5e-4ee0-a0e9-54b5945f6f2e",
+        "name": "On form submission",
+        "webhookId": "42175eed-2f79-4951-8b35-5e0846179093"
+      },
+      {
+        "parameters": {
+          "operation": "completion",
+          "completionTitle": "Pedido realizado!",
+          "completionMessage": "Recuerda que los pedidos pueden demorar en llegar hasta 2 horas, nos estaremos comunicando a tu numero de WhatsApp para coordinar el pedido.",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.form",
+        "typeVersion": 2.5,
+        "position": [
+          2784,
+          192
+        ],
+        "id": "7e2e4b07-1639-416f-aa5c-6a0a53dcc3e8",
+        "name": "Form",
+        "webhookId": "8faa38e0-6969-44f4-8818-4c921e7674cf"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "create",
+          "base": {
+            "__rl": true,
+            "value": "appOfjZfaZNzPLsVL",
+            "mode": "list",
+            "cachedResultName": "Inventario Yacu Rumi",
+            "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblFjrGaU8S5O0nva",
+            "mode": "list",
+            "cachedResultName": "Pedidos",
+            "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL/tblFjrGaU8S5O0nva"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {},
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "Name",
+                "displayName": "Name",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Notes",
+                "displayName": "Notes",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Assignee",
+                "displayName": "Assignee",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Status",
+                "displayName": "Status",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "options",
+                "options": [
+                  {
+                    "name": "Todo",
+                    "value": "Todo"
+                  },
+                  {
+                    "name": "In progress",
+                    "value": "In progress"
+                  },
+                  {
+                    "name": "Done",
+                    "value": "Done"
+                  }
+                ],
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Attachments",
+                "displayName": "Attachments",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Attachment Summary",
+                "displayName": "Attachment Summary",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.2,
+        "position": [
+          3024,
+          112
+        ],
+        "id": "ead7ec62-2930-4942-b5ce-f9239a68de27",
+        "name": "Create a record",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "U3oq6D2Bm4IFm5pA",
+            "name": "airtable_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
+                "name": "format_numero",
+                "value": "=+51{{ $('On form submission').item.json['Tu numero de celular'].toString().slice(-9) }}",
+                "type": "string"
+              },
+              {
+                "id": "f3014987-ea60-4065-a2a6-c0b415e293bc",
+                "name": "custom_stylish_form",
+                "value": ":root { \t--font-family: 'Open Sans', sans-serif; \t--font-weight-normal: 400; \t--font-weight-bold: 600; \t--font-size-body: 12px; \t--font-size-label: 14px; \t--font-size-test-notice: 12px; \t--font-size-input: 14px; \t--font-size-header: 20px; \t--font-size-paragraph: 14px; \t--font-size-link: 12px; \t--font-size-error: 12px; \t--font-size-html-h1: 28px; \t--font-size-html-h2: 20px; \t--font-size-html-h3: 16px; \t--font-size-html-h4: 14px; \t--font-size-html-h5: 12px; \t--font-size-html-h6: 10px; \t--font-size-subheader: 14px;   select { \tbackground-color: #454545; \tcolor: #ffffff; }  /* Color de fondo y texto de las opciones de la lista desplegable */ select option { \tbackground-color: #454545; \tcolor: #ffffff; }  \t/* Colors */ \t--color-background: #000000; \t--color-test-notice-text: #e6a23d; \t--color-test-notice-bg: #fefaf6; \t--color-test-notice-border: #f6dcb7; \t--color-card-bg: #454545; \t--color-card-border: #dbdfe7; \t--color-card-shadow: rgba(99, 77, 255, 0.06); \t--color-link: #ffffff; \t--color-header: #ffffff; \t--color-label: #ffffff; \t--color-input-border: #dbdfe7; \t--color-input-text: #000000; \t--color-focus-border: #FFA500; \t--color-submit-btn-bg: #FFA500; \t--color-submit-btn-text: #000000; \t--color-error: #ea1f30; \t--color-required: #ff6d5a; \t--color-clear-button-bg: #FFA500; \t--color-html-text: #ffffff; \t--color-html-link: #ffffff; \t--color-header-subtext: #7e8186;  \t/* Border Radii */ \t--border-radius-card: 8px; \t--border-radius-input: 6px; \t--border-radius-clear-btn: 50%; \t--card-border-radius: 8px;  \t/* Spacing */ \t--padding-container-top: 24px; \t--padding-card: 24px; \t--padding-test-notice-vertical: 12px; \t--padding-test-notice-horizontal: 24px; \t--margin-bottom-card: 16px; \t--padding-form-input: 12px; \t--card-padding: 24px; \t--card-margin-bottom: 16px;  \t/* Dimensions */ \t--container-width: 448px; \t--submit-btn-height: 48px; \t--checkbox-size: 18px;  \t/* Others */ \t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow); \t--opacity-placeholder: 0.5; }",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.5,
+        "position": [
+          640,
+          -48
+        ],
+        "id": "cff607b7-580a-45b9-b866-0eb38838d76f",
+        "name": "var_1"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "search",
+          "base": {
+            "__rl": true,
+            "value": "appOfjZfaZNzPLsVL",
+            "mode": "list",
+            "cachedResultName": "Inventario Yacu Rumi",
+            "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblVZXwp2xYvnNCgY",
+            "mode": "list",
+            "cachedResultName": "Clientes",
+            "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL/tblVZXwp2xYvnNCgY"
+          },
+          "filterByFormula": "={cel_1}=\"{{ $('var_1').item.json.format_numero}}\"",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.2,
+        "position": [
+          848,
+          -48
+        ],
+        "id": "152ad5c8-ce16-4027-ab9a-2ef32f21a966",
+        "name": "clientes - Search records",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "U3oq6D2Bm4IFm5pA",
+            "name": "airtable_1"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 4
+            },
+            "conditions": [
+              {
+                "id": "ba36557e-ae74-428e-9214-20afbed3a10a",
+                "leftValue": "={{ $('clientes - Search records').item.json.id }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "string",
+                  "operation": "notEmpty",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.4,
+        "position": [
+          1072,
+          -48
+        ],
+        "id": "3bacb517-6857-458e-aa4f-95c9f20529a4",
+        "name": "existe?"
+      },
+      {
+        "parameters": {
+          "formFields": {
+            "values": [
+              {
+                "fieldLabel": "=¿Confirmas que la direccion mencionada arriba es correcta para realizar el envio?",
+                "fieldType": "radio",
+                "fieldOptions": {
+                  "values": [
+                    {
+                      "option": "Si, envíame el hielo a esa dirección"
+                    },
+                    {
+                      "option": "No, quiero enviar a otra dirección"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "options": {
+            "formTitle": "=Hola {{ $('var_2').item.json.Name }}!",
+            "formDescription": "=Direccion de entrega: {{ $('var_2').item.json.direccion_1}}\n\nReferencia: {{ $('var_2').item.json.referencia_1 }}",
+            "customCss": "={{ $('var_1').item.json.custom_stylish_form }}"
+          }
+        },
+        "type": "n8n-nodes-base.form",
+        "typeVersion": 2.5,
+        "position": [
+          1520,
+          -208
+        ],
+        "id": "e746d49e-4df1-44af-91a5-09e12415beb8",
+        "name": "Form1",
+        "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
+      },
+      {
+        "parameters": {
+          "formFields": {
+            "values": [
+              {
+                "fieldLabel": "Nombre"
+              },
+              {
+                "fieldLabel": "Numero de bolsas de hielo que desea",
+                "fieldType": "number"
+              },
+              {
+                "fieldLabel": "Direccion",
+                "fieldType": "textarea"
+              },
+              {
+                "fieldLabel": "Referencia",
+                "fieldType": "textarea"
+              }
+            ]
+          },
+          "options": {
+            "customCss": "={{ $('var_1').item.json.custom_stylish_form }}"
+          }
+        },
+        "type": "n8n-nodes-base.form",
+        "typeVersion": 2.5,
+        "position": [
+          1488,
+          160
+        ],
+        "id": "ee8bb41a-1669-426e-a5b4-1fee559c4a70",
+        "name": "Form2",
+        "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
+                "name": "direccion_1",
+                "value": "={{ $('clientes - Search records').item.json.fields.direccion_1 }}",
+                "type": "string"
+              },
+              {
+                "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
+                "name": "referencia_1",
+                "value": "={{ $('clientes - Search records').item.json.fields.referencia_1 }}",
+                "type": "string"
+              },
+              {
+                "id": "3db97351-41a2-4fd9-ac39-271963ab646a",
+                "name": "Name",
+                "value": "={{ $('clientes - Search records').item.json.fields.Name }}",
+                "type": "string"
+              },
+              {
+                "id": "81219420-6a56-42d8-ad66-477b06ff5347",
+                "name": "id_cliente_airtable",
+                "value": "={{ $('clientes - Search records').item.json.id }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.5,
+        "position": [
+          1296,
+          -208
+        ],
+        "id": "6eab9aa7-a39b-42aa-bce1-2f911b463e65",
+        "name": "var_2"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 4
+            },
+            "conditions": [
+              {
+                "id": "ba36557e-ae74-428e-9214-20afbed3a10a",
+                "leftValue": "={{ $('Form1').item.json['¿Confirmas que la direccion mencionada arriba es correcta para realizar el envio?'] }}",
+                "rightValue": "Si, envíame el hielo a esa dirección",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.4,
+        "position": [
+          1728,
+          -208
+        ],
+        "id": "cb23f709-c421-4108-a6c5-92b8661a4097",
+        "name": "direccion corrrecta?"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
+                "name": "direccion_1",
+                "value": "={{ $('var_2').item.json.direccion_1 }}",
+                "type": "string"
+              },
+              {
+                "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
+                "name": "referencia_1",
+                "value": "={{ $('var_2').item.json.referencia_1 }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.5,
+        "position": [
+          2080,
+          -352
+        ],
+        "id": "67f4bdd6-3cd5-4eb8-b439-b9f607853f9c",
+        "name": "direccion_envio"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
+                "name": "direccion_1",
+                "value": "={{ $json.direccion_1 }}",
+                "type": "string"
+              },
+              {
+                "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
+                "name": "referencia_1",
+                "value": "={{ $json.referencia_1 }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.5,
+        "position": [
+          2720,
+          -240
+        ],
+        "id": "71adae5b-9ca7-4ab9-9c40-7dee482bb89d",
+        "name": "direccion_envio_final"
+      },
+      {
+        "parameters": {
+          "formFields": {
+            "values": [
+              {
+                "fieldLabel": "=Direccion",
+                "fieldType": "textarea",
+                "requiredField": true
+              },
+              {
+                "fieldLabel": "=Referencia",
+                "fieldType": "textarea",
+                "requiredField": true
+              }
+            ]
+          },
+          "options": {
+            "formTitle": "=Coloca tu otra direccion {{ $('var_2').item.json.Name }}",
+            "customCss": "={{ $('var_1').item.json.custom_stylish_form }}"
+          }
+        },
+        "type": "n8n-nodes-base.form",
+        "typeVersion": 2.5,
+        "position": [
+          2080,
+          -48
+        ],
+        "id": "822f6cae-d667-4246-b219-20ba83a30274",
+        "name": "Form3",
+        "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
+                "name": "direccion_1",
+                "value": "={{ $('var_2').item.json.direccion_1 }}",
+                "type": "string"
+              },
+              {
+                "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
+                "name": "referencia_1",
+                "value": "={{ $('var_2').item.json.referencia_1 }}",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.5,
+        "position": [
+          2528,
+          -48
+        ],
+        "id": "353fc60c-3875-4dcf-beec-c8ae0a243412",
+        "name": "direccion_envio1"
+      },
+      {
+        "parameters": {
+          "authentication": "airtableOAuth2Api",
+          "operation": "update",
+          "base": {
+            "__rl": true,
+            "value": "appOfjZfaZNzPLsVL",
+            "mode": "list",
+            "cachedResultName": "Inventario Yacu Rumi",
+            "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL"
+          },
+          "table": {
+            "__rl": true,
+            "value": "tblVZXwp2xYvnNCgY",
+            "mode": "list",
+            "cachedResultName": "Clientes",
+            "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL/tblVZXwp2xYvnNCgY"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {},
+            "matchingColumns": [
+              "id"
+            ],
+            "schema": [
+              {
+                "id": "id",
+                "displayName": "id",
+                "required": false,
+                "defaultMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": false
+              },
+              {
+                "id": "id_cliente",
+                "displayName": "id_cliente",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              },
+              {
+                "id": "Name",
+                "displayName": "Name",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "cel_1",
+                "displayName": "cel_1",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "direccion_1",
+                "displayName": "direccion_1",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "referencia_1",
+                "displayName": "referencia_1",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "Pedidos",
+                "displayName": "Pedidos",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "array",
+                "readOnly": false,
+                "removed": false
+              },
+              {
+                "id": "ID_autonumber",
+                "displayName": "ID_autonumber",
+                "required": false,
+                "defaultMatch": false,
+                "canBeUsedToMatch": true,
+                "display": true,
+                "type": "string",
+                "readOnly": true,
+                "removed": true
+              }
+            ],
+            "attemptToConvertTypes": false,
+            "convertFieldsToString": false
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.airtable",
+        "typeVersion": 2.2,
+        "position": [
+          2304,
+          -48
+        ],
+        "id": "7061bcca-c614-49d3-b5f0-9679e9c4b5bc",
+        "name": "Update record",
+        "credentials": {
+          "airtableOAuth2Api": {
+            "id": "U3oq6D2Bm4IFm5pA",
+            "name": "airtable_1"
+          }
+        }
+      }
+    ],
+    "connections": {
+      "On form submission": {
+        "main": [
+          [
+            {
+              "node": "var_1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Form": {
+        "main": [
+          [
+            {
+              "node": "Create a record",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "var_1": {
+        "main": [
+          [
+            {
+              "node": "clientes - Search records",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "clientes - Search records": {
+        "main": [
+          [
+            {
+              "node": "existe?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "existe?": {
+        "main": [
+          [
+            {
+              "node": "var_2",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Form2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "var_2": {
+        "main": [
+          [
+            {
+              "node": "Form1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Form1": {
+        "main": [
+          [
+            {
+              "node": "direccion corrrecta?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "direccion corrrecta?": {
+        "main": [
+          [
+            {
+              "node": "direccion_envio",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Form3",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "direccion_envio": {
+        "main": [
+          [
+            {
+              "node": "direccion_envio_final",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Form3": {
+        "main": [
+          []
+        ]
+      },
+      "Update record": {
+        "main": [
+          [
+            {
+              "node": "direccion_envio1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "nodeGroups": [],
+    "authors": "Jose Caceres",
+    "name": "Version ba049bd7",
+    "description": "",
+    "autosaved": false,
+    "createdAt": "2026-11-01T02:37:33.615Z",
+    "updatedAt": "2026-11-01T02:37:36.755Z"
+  },
+  "activeVersionId": "ba049bd7-4e94-4cc8-b885-656e01b1e4cd",
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "var_1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Form": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "var_1": {
+      "main": [
+        [
+          {
+            "node": "clientes - Search records",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "clientes - Search records": {
+      "main": [
+        [
+          {
+            "node": "existe?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "existe?": {
+      "main": [
+        [
+          {
+            "node": "var_2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Form2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "var_2": {
+      "main": [
+        [
+          {
+            "node": "Form1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Form1": {
+      "main": [
+        [
+          {
+            "node": "direccion corrrecta?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "direccion corrrecta?": {
+      "main": [
+        [
+          {
+            "node": "direccion_envio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Form3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "direccion_envio": {
+      "main": [
+        [
+          {
+            "node": "direccion_envio_final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Form3": {
+      "main": [
+        [
+          {
+            "node": "direccion_envio1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update record": {
+      "main": [
+        []
+      ]
+    },
+    "direccion_envio1": {
+      "main": [
+        [
+          {
+            "node": "Update record",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "direccion_envio_final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "direccion_envio_final": {
+      "main": [
+        [
+          {
+            "node": "Form4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2026-11-01T00:56:27.521Z",
+  "id": "KkLUflvUBsrHxPkG",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Form. de pedidos",
+  "nodeGroups": [],
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Pedido de Hielo Yaku Rumi",
+        "formDescription": "Nuestros horarios de atención ☝🏼\n\nLunes a Sábado \n8am - 1pm/4pm - 7pm\n\nDomingos y Feriados \n8am - 1pm \n\n*Si nos escribiste fuera de horario, por favor deja tus datos que nosotros nos podremos en contacto contigo \n\n*Recuerda que la recepción de pedido es hasta las 6pm ",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Tu numero de celular",
+              "fieldType": "number",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false,
+          "buttonLabel": "Realizar pedido",
+          "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #000000;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #454545;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #ffffff;\n\t--color-header: #ffffff;\n\t--color-label: #ffffff;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #0000000;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #FFA500;\n\t--color-submit-btn-text: #000000;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #FFA500;\n\t--color-html-text: #ffffff;\n\t--color-html-link: #ffffff;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        464,
+        -48
+      ],
+      "id": "a48963d5-0c5e-4ee0-a0e9-54b5945f6f2e",
+      "name": "On form submission",
+      "webhookId": "42175eed-2f79-4951-8b35-5e0846179093"
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "completionTitle": "Pedido realizado!",
+        "completionMessage": "Recuerda que los pedidos pueden demorar en llegar hasta 2 horas, nos estaremos comunicando a tu numero de WhatsApp para coordinar el pedido.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        3280,
+        304
+      ],
+      "id": "7e2e4b07-1639-416f-aa5c-6a0a53dcc3e8",
+      "name": "Form",
+      "webhookId": "8faa38e0-6969-44f4-8818-4c921e7674cf"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appOfjZfaZNzPLsVL",
+          "mode": "list",
+          "cachedResultName": "Inventario Yacu Rumi",
+          "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblFjrGaU8S5O0nva",
+          "mode": "list",
+          "cachedResultName": "Pedidos",
+          "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL/tblFjrGaU8S5O0nva"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Assignee",
+              "displayName": "Assignee",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Todo",
+                  "value": "Todo"
+                },
+                {
+                  "name": "In progress",
+                  "value": "In progress"
+                },
+                {
+                  "name": "Done",
+                  "value": "Done"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Attachments",
+              "displayName": "Attachments",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Attachment Summary",
+              "displayName": "Attachment Summary",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        3520,
+        224
+      ],
+      "id": "ead7ec62-2930-4942-b5ce-f9239a68de27",
+      "name": "Create a record",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "U3oq6D2Bm4IFm5pA",
+          "name": "airtable_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
+              "name": "format_numero",
+              "value": "=+51{{ $('On form submission').item.json['Tu numero de celular'].toString().slice(-9) }}",
+              "type": "string"
+            },
+            {
+              "id": "f3014987-ea60-4065-a2a6-c0b415e293bc",
+              "name": "custom_stylish_form",
+              "value": ":root { \t--font-family: 'Open Sans', sans-serif; \t--font-weight-normal: 400; \t--font-weight-bold: 600; \t--font-size-body: 12px; \t--font-size-label: 14px; \t--font-size-test-notice: 12px; \t--font-size-input: 14px; \t--font-size-header: 20px; \t--font-size-paragraph: 14px; \t--font-size-link: 12px; \t--font-size-error: 12px; \t--font-size-html-h1: 28px; \t--font-size-html-h2: 20px; \t--font-size-html-h3: 16px; \t--font-size-html-h4: 14px; \t--font-size-html-h5: 12px; \t--font-size-html-h6: 10px; \t--font-size-subheader: 14px;   select { \tbackground-color: #454545; \tcolor: #ffffff; }  /* Color de fondo y texto de las opciones de la lista desplegable */ select option { \tbackground-color: #454545; \tcolor: #ffffff; }  \t/* Colors */ \t--color-background: #000000; \t--color-test-notice-text: #e6a23d; \t--color-test-notice-bg: #fefaf6; \t--color-test-notice-border: #f6dcb7; \t--color-card-bg: #454545; \t--color-card-border: #dbdfe7; \t--color-card-shadow: rgba(99, 77, 255, 0.06); \t--color-link: #ffffff; \t--color-header: #ffffff; \t--color-label: #ffffff; \t--color-input-border: #dbdfe7; \t--color-input-text: #000000; \t--color-focus-border: #FFA500; \t--color-submit-btn-bg: #FFA500; \t--color-submit-btn-text: #000000; \t--color-error: #ea1f30; \t--color-required: #ff6d5a; \t--color-clear-button-bg: #FFA500; \t--color-html-text: #ffffff; \t--color-html-link: #ffffff; \t--color-header-subtext: #7e8186;  \t/* Border Radii */ \t--border-radius-card: 8px; \t--border-radius-input: 6px; \t--border-radius-clear-btn: 50%; \t--card-border-radius: 8px;  \t/* Spacing */ \t--padding-container-top: 24px; \t--padding-card: 24px; \t--padding-test-notice-vertical: 12px; \t--padding-test-notice-horizontal: 24px; \t--margin-bottom-card: 16px; \t--padding-form-input: 12px; \t--card-padding: 24px; \t--card-margin-bottom: 16px;  \t/* Dimensions */ \t--container-width: 448px; \t--submit-btn-height: 48px; \t--checkbox-size: 18px;  \t/* Others */ \t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow); \t--opacity-placeholder: 0.5; }",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        640,
+        -48
+      ],
+      "id": "cff607b7-580a-45b9-b866-0eb38838d76f",
+      "name": "var_1"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "search",
+        "base": {
+          "__rl": true,
+          "value": "appOfjZfaZNzPLsVL",
+          "mode": "list",
+          "cachedResultName": "Inventario Yacu Rumi",
+          "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblVZXwp2xYvnNCgY",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL/tblVZXwp2xYvnNCgY"
+        },
+        "filterByFormula": "={cel_1}=\"{{ $('var_1').item.json.format_numero}}\"",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        848,
+        -48
+      ],
+      "id": "152ad5c8-ce16-4027-ab9a-2ef32f21a966",
+      "name": "clientes - Search records",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "U3oq6D2Bm4IFm5pA",
+          "name": "airtable_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 4
+          },
+          "conditions": [
+            {
+              "id": "ba36557e-ae74-428e-9214-20afbed3a10a",
+              "leftValue": "={{ $('clientes - Search records').item.json.id }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.4,
+      "position": [
+        1072,
+        -48
+      ],
+      "id": "3bacb517-6857-458e-aa4f-95c9f20529a4",
+      "name": "existe?"
+    },
+    {
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "=¿Confirmas que la direccion mencionada arriba es correcta para realizar el envio?",
+              "fieldType": "radio",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Si, envíame el hielo a esa dirección"
+                  },
+                  {
+                    "option": "No, quiero enviar a otra dirección"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {
+          "formTitle": "=Hola {{ $('var_2').item.json.Name }}!",
+          "formDescription": "=Direccion de entrega: {{ $('var_2').item.json.direccion_1}}\n\nReferencia: {{ $('var_2').item.json.referencia_1 }}",
+          "customCss": "={{ $('var_1').item.json.custom_stylish_form }}"
+        }
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        1520,
+        -208
+      ],
+      "id": "e746d49e-4df1-44af-91a5-09e12415beb8",
+      "name": "Form1",
+      "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
+    },
+    {
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Nombre"
+            },
+            {
+              "fieldLabel": "Numero de bolsas de hielo que desea",
+              "fieldType": "number"
+            },
+            {
+              "fieldLabel": "Direccion",
+              "fieldType": "textarea"
+            },
+            {
+              "fieldLabel": "Referencia",
+              "fieldType": "textarea"
+            }
+          ]
+        },
+        "options": {
+          "customCss": "={{ $('var_1').item.json.custom_stylish_form }}"
+        }
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        2208,
+        320
+      ],
+      "id": "ee8bb41a-1669-426e-a5b4-1fee559c4a70",
+      "name": "Form2",
+      "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
+              "name": "direccion_1",
+              "value": "={{ $('clientes - Search records').item.json.fields.direccion_1 }}",
+              "type": "string"
+            },
+            {
+              "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
+              "name": "referencia_1",
+              "value": "={{ $('clientes - Search records').item.json.fields.referencia_1 }}",
+              "type": "string"
+            },
+            {
+              "id": "3db97351-41a2-4fd9-ac39-271963ab646a",
+              "name": "Name",
+              "value": "={{ $('clientes - Search records').item.json.fields.Name }}",
+              "type": "string"
+            },
+            {
+              "id": "81219420-6a56-42d8-ad66-477b06ff5347",
+              "name": "id_cliente_airtable",
+              "value": "={{ $('clientes - Search records').item.json.id }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1296,
+        -208
+      ],
+      "id": "6eab9aa7-a39b-42aa-bce1-2f911b463e65",
+      "name": "var_2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 4
+          },
+          "conditions": [
+            {
+              "id": "ba36557e-ae74-428e-9214-20afbed3a10a",
+              "leftValue": "={{ $('Form1').item.json['¿Confirmas que la direccion mencionada arriba es correcta para realizar el envio?'] }}",
+              "rightValue": "Si, envíame el hielo a esa dirección",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.4,
+      "position": [
+        1728,
+        -208
+      ],
+      "id": "cb23f709-c421-4108-a6c5-92b8661a4097",
+      "name": "direccion corrrecta?"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
+              "name": "direccion_1",
+              "value": "={{ $('var_2').item.json.direccion_1 }}",
+              "type": "string"
+            },
+            {
+              "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
+              "name": "referencia_1",
+              "value": "={{ $('var_2').item.json.referencia_1 }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2080,
+        -352
+      ],
+      "id": "67f4bdd6-3cd5-4eb8-b439-b9f607853f9c",
+      "name": "direccion_envio"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
+              "name": "direccion_1",
+              "value": "={{ $json.direccion_1 }}",
+              "type": "string"
+            },
+            {
+              "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
+              "name": "referencia_1",
+              "value": "={{ $json.referencia_1 }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2944,
+        -144
+      ],
+      "id": "71adae5b-9ca7-4ab9-9c40-7dee482bb89d",
+      "name": "direccion_envio_final"
+    },
+    {
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "=Direccion",
+              "fieldType": "textarea",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "=Referencia",
+              "fieldType": "textarea",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "formTitle": "=Coloca tu otra direccion {{ $('var_2').item.json.Name }}",
+          "customCss": "={{ $('var_1').item.json.custom_stylish_form }}"
+        }
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        2080,
+        -48
+      ],
+      "id": "822f6cae-d667-4246-b219-20ba83a30274",
+      "name": "Form3",
+      "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
+              "name": "direccion_1",
+              "value": "={{ $('Form3').item.json.Direccion }}",
+              "type": "string"
+            },
+            {
+              "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
+              "name": "referencia_1",
+              "value": "={{ $('Form3').item.json.Referencia }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2336,
+        32
+      ],
+      "id": "353fc60c-3875-4dcf-beec-c8ae0a243412",
+      "name": "direccion_envio1"
+    },
+    {
+      "parameters": {
+        "authentication": "airtableOAuth2Api",
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appOfjZfaZNzPLsVL",
+          "mode": "list",
+          "cachedResultName": "Inventario Yacu Rumi",
+          "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblVZXwp2xYvnNCgY",
+          "mode": "list",
+          "cachedResultName": "Clientes",
+          "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL/tblVZXwp2xYvnNCgY"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('var_2').item.json.id_cliente_airtable }}",
+            "direccion_1": "={{ $('direccion_envio1').item.json.direccion_1 }}",
+            "referencia_1": "={{ $('direccion_envio1').item.json.referencia_1 }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "id_cliente",
+              "displayName": "id_cliente",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "cel_1",
+              "displayName": "cel_1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "direccion_1",
+              "displayName": "direccion_1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "referencia_1",
+              "displayName": "referencia_1",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Pedidos",
+              "displayName": "Pedidos",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "array",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "ID_autonumber",
+              "displayName": "ID_autonumber",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        2528,
+        -144
+      ],
+      "id": "7061bcca-c614-49d3-b5f0-9679e9c4b5bc",
+      "name": "Update record",
+      "credentials": {
+        "airtableOAuth2Api": {
+          "id": "U3oq6D2Bm4IFm5pA",
+          "name": "airtable_1"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
+              "name": "direccion_1",
+              "value": "={{ $('var_2').item.json.direccion_1 }}",
+              "type": "string"
+            },
+            {
+              "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
+              "name": "referencia_1",
+              "value": "={{ $('var_2').item.json.referencia_1 }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        2400,
+        640
+      ],
+      "id": "439bdba2-4e5d-48da-b5ff-b43b905f025c",
+      "name": "direccion_envio2"
+    },
+    {
+      "parameters": {
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Cantidad de bolsas de hielo que desea",
+              "fieldType": "number"
+            }
+          ]
+        },
+        "options": {
+          "formDescription": "El peso de cada bolsa es de 3.5 kg",
+          "customCss": "={{ $('var_1').item.json.custom_stylish_form }}"
+        }
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        3200,
+        -144
+      ],
+      "id": "de3e7f9e-5a73-4191-a516-a9e8ea670e95",
+      "name": "Form4",
+      "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
+    }
+  ],
+  "pinData": {
+    "On form submission": [
+      {
+        "json": {
+          "Tu numero de celular": 936639242,
+          "submittedAt": "2026-10-31T21:37:51.374-05:00",
+          "formMode": "production"
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "repo_name": "n8n_backups",
+  "repo_owner": "Yakurumi61",
+  "repo_path": "n8n_personal",
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "eHTmYvthjosh2UGn",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "role": "workflow:owner",
+      "workflowId": "KkLUflvUBsrHxPkG",
+      "projectId": "a2ZB1ulA3n4SHivr",
+      "createdAt": "2026-11-01T00:56:27.521Z",
+      "updatedAt": "2026-11-01T00:56:27.521Z"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-11-01T02:46:22.857Z",
+  "versionId": "55bf2c25-a431-4c03-b32f-4dc0ef2a0882"
+}
