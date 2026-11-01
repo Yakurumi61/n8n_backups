@@ -1,7 +1,7 @@
 {
   "active": true,
   "activeVersion": {
-    "versionId": "2607ec5c-cd0d-47d1-867c-114f05913fc3",
+    "versionId": "a73cf78b-e349-4fc0-baad-f536c5206281",
     "workflowId": "t0hBMGzhZh9UlkPc",
     "nodes": [
       {
@@ -41,9 +41,7 @@
         "parameters": {
           "rule": {
             "interval": [
-              {
-                "triggerAtMinute": {}
-              }
+              {}
             ]
           }
         },
@@ -168,13 +166,13 @@
     },
     "nodeGroups": [],
     "authors": "Jose Caceres",
-    "name": "Version 2607ec5c",
+    "name": "Version a73cf78b",
     "description": "",
     "autosaved": true,
-    "createdAt": "2026-10-31T21:31:17.852Z",
-    "updatedAt": "2026-10-31T21:34:15.148Z"
+    "createdAt": "2026-10-31T21:36:36.176Z",
+    "updatedAt": "2026-10-31T21:36:37.480Z"
   },
-  "activeVersionId": "2607ec5c-cd0d-47d1-867c-114f05913fc3",
+  "activeVersionId": "a73cf78b-e349-4fc0-baad-f536c5206281",
   "connections": {
     "n8n": {
       "main": [
@@ -286,9 +284,7 @@
       "parameters": {
         "rule": {
           "interval": [
-            {
-              "triggerAtMinute": {}
-            }
+            {}
           ]
         }
       },
@@ -375,6 +371,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-10-31T21:31:17.844Z",
-  "versionId": "2607ec5c-cd0d-47d1-867c-114f05913fc3"
+  "updatedAt": "2026-10-31T21:36:36.171Z",
+  "versionId": "a73cf78b-e349-4fc0-baad-f536c5206281"
 }
