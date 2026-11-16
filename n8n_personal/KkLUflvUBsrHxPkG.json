@@ -1,13 +1,13 @@
 {
   "active": true,
   "activeVersion": {
-    "versionId": "47bdba72-e175-47cf-9eae-ddd3b5b80ab1",
+    "versionId": "958dc531-a305-467e-b0fd-dfb00c06b323",
     "workflowId": "KkLUflvUBsrHxPkG",
     "nodes": [
       {
         "parameters": {
-          "formTitle": "Pedido de Hielo Yaku Rumi",
-          "formDescription": "Nuestros horarios de atención ☝🏼\n\nLunes a Sábado \n8am - 1pm/4pm - 7pm\n\nDomingos y Feriados \n8am - 1pm \n\n*Si nos escribiste fuera de horario, por favor deja tus datos que nosotros nos podremos en contacto contigo \n\n*Recuerda que la recepción de pedido es hasta las 6pm ",
+          "formTitle": "Pedidos de Hielo Yacu Rumi",
+          "formDescription": "<img src=\"https://appzipline.yacurumitech.store/u/rLxm3R.jpeg\" \n     width=\"150\">\n\nNuestros horarios de atención ☝🏼\n\nLunes a Sábado \n8am - 1pm/4pm - 7pm\n\nDomingos y Feriados \n8am - 1pm \n\n*Si nos escribiste fuera de horario, por favor deja tus datos que nosotros nos podremos en contacto contigo \n\n*Recuerda que la recepción de pedido es hasta las 6pm ",
           "formFields": {
             "values": [
               {
@@ -20,7 +20,7 @@
           "options": {
             "appendAttribution": false,
             "buttonLabel": "Realizar pedido",
-            "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #000000;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #454545;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #ffffff;\n\t--color-header: #ffffff;\n\t--color-label: #ffffff;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #0000000;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #FFA500;\n\t--color-submit-btn-text: #000000;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #FFA500;\n\t--color-html-text: #ffffff;\n\t--color-html-link: #ffffff;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
+            "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #454545;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #000000;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #ffffff;\n\t--color-header: #ffffff;\n\t--color-label: #ffffff;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #0000000;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #FFA500;\n\t--color-submit-btn-text: #000000;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #FFA500;\n\t--color-html-text: #ffffff;\n\t--color-html-link: #ffffff;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
           }
         },
         "type": "n8n-nodes-base.formTrigger",
@@ -164,9 +164,11 @@
               }
             ]
           },
+          "limitWaitTime": true,
+          "resumeAmount": 6,
           "options": {
             "formTitle": "=Hola {{ $('var_2').item.json.Name }}!",
-            "formDescription": "=🏠 Direccion de entrega: <strong>{{ $('var_2').item.json.direccion_1}}</strong>\n\n📌 Referencia: <strong>{{ $('var_2').item.json.referencia_1 }}</strong>",
+            "formDescription": "=🏠 Direccion de entrega: <strong>{{ $('var_2').item.json.direccion_1}}</strong>\n\n📌 Referencia: <strong>{{ $('var_2').item.json.referencia_1 }}</strong>\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
             "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
           }
         },
@@ -203,7 +205,10 @@
               }
             ]
           },
+          "limitWaitTime": true,
+          "resumeAmount": 6,
           "options": {
+            "formDescription": "={{ $('var_0').item.json.link_reiniciar_form }}",
             "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
           }
         },
@@ -319,8 +324,11 @@
               }
             ]
           },
+          "limitWaitTime": true,
+          "resumeAmount": 6,
           "options": {
             "formTitle": "=Coloca tu otra direccion {{ $('var_2').item.json.Name }}",
+            "formDescription": "={{ $('var_0').item.json.link_reiniciar_form }}",
             "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
           }
         },
@@ -473,35 +481,6 @@
       },
       {
         "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
-                "name": "direccion_1",
-                "value": "={{ $('var_2').item.json.direccion_1 }}",
-                "type": "string"
-              },
-              {
-                "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
-                "name": "referencia_1",
-                "value": "={{ $('var_2').item.json.referencia_1 }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.5,
-        "position": [
-          2400,
-          640
-        ],
-        "id": "439bdba2-4e5d-48da-b5ff-b43b905f025c",
-        "name": "direccion_envio2"
-      },
-      {
-        "parameters": {
           "formFields": {
             "values": [
               {
@@ -515,8 +494,10 @@
               }
             ]
           },
+          "limitWaitTime": true,
+          "resumeAmount": 6,
           "options": {
-            "formDescription": "=Cada bolsa de hielo cuesta S/. 3.5 por mayor y el peso de cada una es de 3.5 kg",
+            "formDescription": "=Cada bolsa de hielo cuesta S/. 3.5 por mayor y el peso de cada una es de 3.5 kg\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
             "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
           }
         },
@@ -744,8 +725,10 @@
               }
             ]
           },
+          "limitWaitTime": true,
+          "resumeAmount": 6,
           "options": {
-            "formDescription": "=Coloca un numero de celular valido",
+            "formDescription": "=Coloca un numero de celular valido\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
             "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
           }
         },
@@ -766,7 +749,19 @@
               {
                 "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
                 "name": "custom_stylish_form",
-                "value": "=:root { \t--font-family: 'Open Sans', sans-serif; \t--font-weight-normal: 400; \t--font-weight-bold: 600; \t--font-size-body: 12px; \t--font-size-label: 14px; \t--font-size-test-notice: 12px; \t--font-size-input: 14px; \t--font-size-header: 20px; \t--font-size-paragraph: 14px; \t--font-size-link: 12px; \t--font-size-error: 12px; \t--font-size-html-h1: 28px; \t--font-size-html-h2: 20px; \t--font-size-html-h3: 16px; \t--font-size-html-h4: 14px; \t--font-size-html-h5: 12px; \t--font-size-html-h6: 10px; \t--font-size-subheader: 14px;   select { \tbackground-color: #454545; \tcolor: #ffffff; }  /* Color de fondo y texto de las opciones de la lista desplegable */ select option { \tbackground-color: #454545; \tcolor: #ffffff; }  \t/* Colors */ \t--color-background: #000000; \t--color-test-notice-text: #e6a23d; \t--color-test-notice-bg: #fefaf6; \t--color-test-notice-border: #f6dcb7; \t--color-card-bg: #454545; \t--color-card-border: #dbdfe7; \t--color-card-shadow: rgba(99, 77, 255, 0.06); \t--color-link: #ffffff; \t--color-header: #ffffff; \t--color-label: #ffffff; \t--color-input-border: #dbdfe7; \t--color-input-text: #000000; \t--color-focus-border: #FFA500; \t--color-submit-btn-bg: #FFA500; \t--color-submit-btn-text: #000000; \t--color-error: #ea1f30; \t--color-required: #ff6d5a; \t--color-clear-button-bg: #FFA500; \t--color-html-text: #ffffff; \t--color-html-link: #ffffff; \t--color-header-subtext: #7e8186;  \t/* Border Radii */ \t--border-radius-card: 8px; \t--border-radius-input: 6px; \t--border-radius-clear-btn: 50%; \t--card-border-radius: 8px;  \t/* Spacing */ \t--padding-container-top: 24px; \t--padding-card: 24px; \t--padding-test-notice-vertical: 12px; \t--padding-test-notice-horizontal: 24px; \t--margin-bottom-card: 16px; \t--padding-form-input: 12px; \t--card-padding: 24px; \t--card-margin-bottom: 16px;  \t/* Dimensions */ \t--container-width: 448px; \t--submit-btn-height: 48px; \t--checkbox-size: 18px;  \t/* Others */ \t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow); \t--opacity-placeholder: 0.5; }",
+                "value": "=:root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #454545;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #000000;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #ffffff;\n\t--color-header: #ffffff;\n\t--color-label: #ffffff;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #0000000;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #FFA500;\n\t--color-submit-btn-text: #000000;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #FFA500;\n\t--color-html-text: #ffffff;\n\t--color-html-link: #ffffff;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}",
+                "type": "string"
+              },
+              {
+                "id": "d068137b-a64b-46d4-9244-b9469c35f243",
+                "name": "imagen_yaku_rumi",
+                "value": "<img src=\"https://appzipline.yacurumitech.store/u/rLxm3R.jpeg\"       width=\"150\">",
+                "type": "string"
+              },
+              {
+                "id": "ec9eb668-620f-4a5f-85f8-da208ee3bd73",
+                "name": "link_reiniciar_form",
+                "value": "=<p>Psd: Si deseas reiniciar este formulario<a href=\"https://appn8n.yacurumitech.store/form/42175eed-2f79-4951-8b35-5e0846179093\">,haz click aquí</a></p>",
                 "type": "string"
               }
             ]
@@ -873,7 +868,10 @@
               }
             ]
           },
+          "limitWaitTime": true,
+          "resumeAmount": 6,
           "options": {
+            "formDescription": "={{ $('var_0').item.json.link_reiniciar_form }}",
             "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
           }
         },
@@ -1757,13 +1755,13 @@
     },
     "nodeGroups": [],
     "authors": "Jose Caceres",
-    "name": "Version 47bdba72",
+    "name": "Version 958dc531",
     "description": "",
     "autosaved": false,
-    "createdAt": "2026-11-01T20:56:11.487Z",
-    "updatedAt": "2026-11-01T20:56:14.426Z"
+    "createdAt": "2026-11-15T16:49:01.175Z",
+    "updatedAt": "2026-11-15T16:49:02.593Z"
   },
-  "activeVersionId": "47bdba72-e175-47cf-9eae-ddd3b5b80ab1",
+  "activeVersionId": "958dc531-a305-467e-b0fd-dfb00c06b323",
   "connections": {
     "On form submission": {
       "main": [
@@ -2152,8 +2150,8 @@
   "nodes": [
     {
       "parameters": {
-        "formTitle": "Pedido de Hielo Yaku Rumi",
-        "formDescription": "Nuestros horarios de atención ☝🏼\n\nLunes a Sábado \n8am - 1pm/4pm - 7pm\n\nDomingos y Feriados \n8am - 1pm \n\n*Si nos escribiste fuera de horario, por favor deja tus datos que nosotros nos podremos en contacto contigo \n\n*Recuerda que la recepción de pedido es hasta las 6pm ",
+        "formTitle": "Pedidos de Hielo Yacu Rumi",
+        "formDescription": "<img src=\"https://appzipline.yacurumitech.store/u/rLxm3R.jpeg\" \n     width=\"150\">\n\nNuestros horarios de atención ☝🏼\n\nLunes a Sábado \n8am - 1pm/4pm - 7pm\n\nDomingos y Feriados \n8am - 1pm \n\n*Si nos escribiste fuera de horario, por favor deja tus datos que nosotros nos podremos en contacto contigo \n\n*Recuerda que la recepción de pedido es hasta las 6pm ",
         "formFields": {
           "values": [
             {
@@ -2166,7 +2164,7 @@
         "options": {
           "appendAttribution": false,
           "buttonLabel": "Realizar pedido",
-          "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #000000;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #454545;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #ffffff;\n\t--color-header: #ffffff;\n\t--color-label: #ffffff;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #0000000;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #FFA500;\n\t--color-submit-btn-text: #000000;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #FFA500;\n\t--color-html-text: #ffffff;\n\t--color-html-link: #ffffff;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
+          "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #454545;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #000000;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #ffffff;\n\t--color-header: #ffffff;\n\t--color-label: #ffffff;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #0000000;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #FFA500;\n\t--color-submit-btn-text: #000000;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #FFA500;\n\t--color-html-text: #ffffff;\n\t--color-html-link: #ffffff;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
         }
       },
       "type": "n8n-nodes-base.formTrigger",
@@ -2310,9 +2308,11 @@
             }
           ]
         },
+        "limitWaitTime": true,
+        "resumeAmount": 6,
         "options": {
           "formTitle": "=Hola {{ $('var_2').item.json.Name }}!",
-          "formDescription": "=🏠 Direccion de entrega: <strong>{{ $('var_2').item.json.direccion_1}}</strong>\n\n📌 Referencia: <strong>{{ $('var_2').item.json.referencia_1 }}</strong>",
+          "formDescription": "=🏠 Direccion de entrega: <strong>{{ $('var_2').item.json.direccion_1}}</strong>\n\n📌 Referencia: <strong>{{ $('var_2').item.json.referencia_1 }}</strong>\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
           "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
         }
       },
@@ -2349,7 +2349,10 @@
             }
           ]
         },
+        "limitWaitTime": true,
+        "resumeAmount": 6,
         "options": {
+          "formDescription": "={{ $('var_0').item.json.link_reiniciar_form }}",
           "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
         }
       },
@@ -2465,8 +2468,11 @@
             }
           ]
         },
+        "limitWaitTime": true,
+        "resumeAmount": 6,
         "options": {
           "formTitle": "=Coloca tu otra direccion {{ $('var_2').item.json.Name }}",
+          "formDescription": "={{ $('var_0').item.json.link_reiniciar_form }}",
           "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
         }
       },
@@ -2619,35 +2625,6 @@
     },
     {
       "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
-              "name": "direccion_1",
-              "value": "={{ $('var_2').item.json.direccion_1 }}",
-              "type": "string"
-            },
-            {
-              "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
-              "name": "referencia_1",
-              "value": "={{ $('var_2').item.json.referencia_1 }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.5,
-      "position": [
-        2400,
-        640
-      ],
-      "id": "439bdba2-4e5d-48da-b5ff-b43b905f025c",
-      "name": "direccion_envio2"
-    },
-    {
-      "parameters": {
         "formFields": {
           "values": [
             {
@@ -2661,8 +2638,10 @@
             }
           ]
         },
+        "limitWaitTime": true,
+        "resumeAmount": 6,
         "options": {
-          "formDescription": "=Cada bolsa de hielo cuesta S/. 3.5 por mayor y el peso de cada una es de 3.5 kg",
+          "formDescription": "=Cada bolsa de hielo cuesta S/. 3.5 por mayor y el peso de cada una es de 3.5 kg\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
           "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
         }
       },
@@ -2890,8 +2869,10 @@
             }
           ]
         },
+        "limitWaitTime": true,
+        "resumeAmount": 6,
         "options": {
-          "formDescription": "=Coloca un numero de celular valido",
+          "formDescription": "=Coloca un numero de celular valido\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
           "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
         }
       },
@@ -2912,7 +2893,19 @@
             {
               "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
               "name": "custom_stylish_form",
-              "value": "=:root { \t--font-family: 'Open Sans', sans-serif; \t--font-weight-normal: 400; \t--font-weight-bold: 600; \t--font-size-body: 12px; \t--font-size-label: 14px; \t--font-size-test-notice: 12px; \t--font-size-input: 14px; \t--font-size-header: 20px; \t--font-size-paragraph: 14px; \t--font-size-link: 12px; \t--font-size-error: 12px; \t--font-size-html-h1: 28px; \t--font-size-html-h2: 20px; \t--font-size-html-h3: 16px; \t--font-size-html-h4: 14px; \t--font-size-html-h5: 12px; \t--font-size-html-h6: 10px; \t--font-size-subheader: 14px;   select { \tbackground-color: #454545; \tcolor: #ffffff; }  /* Color de fondo y texto de las opciones de la lista desplegable */ select option { \tbackground-color: #454545; \tcolor: #ffffff; }  \t/* Colors */ \t--color-background: #000000; \t--color-test-notice-text: #e6a23d; \t--color-test-notice-bg: #fefaf6; \t--color-test-notice-border: #f6dcb7; \t--color-card-bg: #454545; \t--color-card-border: #dbdfe7; \t--color-card-shadow: rgba(99, 77, 255, 0.06); \t--color-link: #ffffff; \t--color-header: #ffffff; \t--color-label: #ffffff; \t--color-input-border: #dbdfe7; \t--color-input-text: #000000; \t--color-focus-border: #FFA500; \t--color-submit-btn-bg: #FFA500; \t--color-submit-btn-text: #000000; \t--color-error: #ea1f30; \t--color-required: #ff6d5a; \t--color-clear-button-bg: #FFA500; \t--color-html-text: #ffffff; \t--color-html-link: #ffffff; \t--color-header-subtext: #7e8186;  \t/* Border Radii */ \t--border-radius-card: 8px; \t--border-radius-input: 6px; \t--border-radius-clear-btn: 50%; \t--card-border-radius: 8px;  \t/* Spacing */ \t--padding-container-top: 24px; \t--padding-card: 24px; \t--padding-test-notice-vertical: 12px; \t--padding-test-notice-horizontal: 24px; \t--margin-bottom-card: 16px; \t--padding-form-input: 12px; \t--card-padding: 24px; \t--card-margin-bottom: 16px;  \t/* Dimensions */ \t--container-width: 448px; \t--submit-btn-height: 48px; \t--checkbox-size: 18px;  \t/* Others */ \t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow); \t--opacity-placeholder: 0.5; }",
+              "value": "=:root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #454545;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #000000;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #ffffff;\n\t--color-header: #ffffff;\n\t--color-label: #ffffff;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #0000000;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #FFA500;\n\t--color-submit-btn-text: #000000;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #FFA500;\n\t--color-html-text: #ffffff;\n\t--color-html-link: #ffffff;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}",
+              "type": "string"
+            },
+            {
+              "id": "d068137b-a64b-46d4-9244-b9469c35f243",
+              "name": "imagen_yaku_rumi",
+              "value": "<img src=\"https://appzipline.yacurumitech.store/u/rLxm3R.jpeg\"       width=\"150\">",
+              "type": "string"
+            },
+            {
+              "id": "ec9eb668-620f-4a5f-85f8-da208ee3bd73",
+              "name": "link_reiniciar_form",
+              "value": "=<p>Psd: Si deseas reiniciar este formulario<a href=\"https://appn8n.yacurumitech.store/form/42175eed-2f79-4951-8b35-5e0846179093\">,haz click aquí</a></p>",
               "type": "string"
             }
           ]
@@ -3019,7 +3012,10 @@
             }
           ]
         },
+        "limitWaitTime": true,
+        "resumeAmount": 6,
         "options": {
+          "formDescription": "={{ $('var_0').item.json.link_reiniciar_form }}",
           "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
         }
       },
@@ -3561,6 +3557,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-11-01T20:56:11.482Z",
-  "versionId": "47bdba72-e175-47cf-9eae-ddd3b5b80ab1"
+  "updatedAt": "2026-11-15T16:49:01.169Z",
+  "versionId": "958dc531-a305-467e-b0fd-dfb00c06b323"
 }
