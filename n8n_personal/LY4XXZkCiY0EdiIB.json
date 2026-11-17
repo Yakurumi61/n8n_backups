@@ -1,0 +1,73 @@
+{
+  "active": true,
+  "activeVersion": {
+    "versionId": "c7ac06c0-1c1f-4bfb-a3bb-19a7b5715c27",
+    "workflowId": "LY4XXZkCiY0EdiIB",
+    "nodes": [
+      {
+        "parameters": {},
+        "type": "@devlikeapro/n8n-nodes-waha.wahaTrigger",
+        "typeVersion": 202502,
+        "position": [
+          0,
+          0
+        ],
+        "id": "061bf9e7-5632-4dcb-94f9-34a3f8d7fd82",
+        "name": "WAHA Trigger",
+        "webhookId": "c77246ff-9018-4ae5-966c-e8b7a96d5f12"
+      }
+    ],
+    "connections": {},
+    "nodeGroups": [],
+    "authors": "Jose Caceres",
+    "name": "Version c7ac06c0",
+    "description": "",
+    "autosaved": true,
+    "createdAt": "2026-11-16T23:23:40.803Z",
+    "updatedAt": "2026-11-16T23:23:53.806Z"
+  },
+  "activeVersionId": "c7ac06c0-1c1f-4bfb-a3bb-19a7b5715c27",
+  "connections": {},
+  "createdAt": "2026-11-16T23:23:40.803Z",
+  "id": "LY4XXZkCiY0EdiIB",
+  "isArchived": false,
+  "meta": null,
+  "name": "prueba waha",
+  "nodeGroups": [],
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "@devlikeapro/n8n-nodes-waha.wahaTrigger",
+      "typeVersion": 202502,
+      "position": [
+        0,
+        0
+      ],
+      "id": "061bf9e7-5632-4dcb-94f9-34a3f8d7fd82",
+      "name": "WAHA Trigger",
+      "webhookId": "c77246ff-9018-4ae5-966c-e8b7a96d5f12"
+    }
+  ],
+  "pinData": {},
+  "repo_name": "n8n_backups",
+  "repo_owner": "Yakurumi61",
+  "repo_path": "n8n_personal",
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "shared": [
+    {
+      "role": "workflow:owner",
+      "workflowId": "LY4XXZkCiY0EdiIB",
+      "projectId": "a2ZB1ulA3n4SHivr",
+      "createdAt": "2026-11-16T23:23:40.803Z",
+      "updatedAt": "2026-11-16T23:23:40.803Z"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2026-11-16T23:23:52.584Z",
+  "versionId": "c7ac06c0-1c1f-4bfb-a3bb-19a7b5715c27"
+}
