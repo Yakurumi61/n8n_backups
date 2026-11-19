@@ -1,17 +1,32 @@
 {
   "active": true,
   "activeVersion": {
-    "versionId": "81d6dc1f-4327-46f8-80be-e7dea6d00036",
+    "versionId": "36a47e69-e3ee-4465-af15-9bce5bd93c7a",
     "workflowId": "KkLUflvUBsrHxPkG",
     "nodes": [
       {
         "parameters": {
-          "formTitle": "Pedidos de Hielo Yacu Rumi",
+          "content": "## revisar si tiene pedido en prepago",
+          "height": 128,
+          "width": 432
+        },
+        "type": "n8n-nodes-base.stickyNote",
+        "typeVersion": 1,
+        "position": [
+          6896,
+          1072
+        ],
+        "id": "a797ae49-5c73-4d5a-867a-42b4dd45beb8",
+        "name": "Sticky Note"
+      },
+      {
+        "parameters": {
+          "formTitle": "Pedidos de Hielo Yaku Rumi",
           "formDescription": "<img src=\"https://appzipline.yacurumitech.store/u/rLxm3R.jpeg\" \n     width=\"150\">\n\nNuestros horarios de atención ☝🏼\n\nLunes a Sábado \n8am - 1pm/4pm - 7pm\n\nDomingos y Feriados \n8am - 1pm \n\n*Si nos escribiste fuera de horario, por favor deja tus datos que nosotros nos podremos en contacto contigo \n\n*Recuerda que la recepción de pedido es hasta las 6pm ",
           "formFields": {
             "values": [
               {
-                "fieldLabel": "Escribe tu DNI",
+                "fieldLabel": "Tu numero de celular",
                 "fieldType": "number",
                 "requiredField": true
               }
@@ -26,12 +41,12 @@
         "type": "n8n-nodes-base.formTrigger",
         "typeVersion": 2.6,
         "position": [
-          -752,
-          16
+          3792,
+          2064
         ],
-        "id": "a48963d5-0c5e-4ee0-a0e9-54b5945f6f2e",
+        "id": "52a2a5bf-2b01-4d2b-a77e-1753aeaa23de",
         "name": "On form submission",
-        "webhookId": "42175eed-2f79-4951-8b35-5e0846179093"
+        "webhookId": "2a8b8154-c732-4c6a-9b74-e3efd28599f2"
       },
       {
         "parameters": {
@@ -42,10 +57,10 @@
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.5,
         "position": [
-          6640,
-          96
+          8736,
+          1968
         ],
-        "id": "7e2e4b07-1639-416f-aa5c-6a0a53dcc3e8",
+        "id": "c440661c-be81-4a71-b392-b02d660366e8",
         "name": "Form",
         "webhookId": "8faa38e0-6969-44f4-8818-4c921e7674cf"
       },
@@ -55,8 +70,8 @@
             "assignments": [
               {
                 "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
-                "name": "format_dni",
-                "value": "={{ $json.format_dni }}",
+                "name": "format_numero",
+                "value": "={{ $json.format_numero }}",
                 "type": "string"
               }
             ]
@@ -66,10 +81,10 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.5,
         "position": [
-          576,
-          -48
+          5120,
+          2000
         ],
-        "id": "cff607b7-580a-45b9-b866-0eb38838d76f",
+        "id": "3ea5329e-77c5-4bf5-b9e5-35102a247818",
         "name": "var_1"
       },
       {
@@ -90,16 +105,16 @@
             "cachedResultName": "Clientes",
             "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL/tblVZXwp2xYvnNCgY"
           },
-          "filterByFormula": "={DNI}=\"{{ $('var_1').item.json.format_dni}}\"",
+          "filterByFormula": "={cel_1}=\"{{ $('var_1').item.json.format_numero}}\"",
           "options": {}
         },
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.2,
         "position": [
-          848,
-          -48
+          5392,
+          2000
         ],
-        "id": "152ad5c8-ce16-4027-ab9a-2ef32f21a966",
+        "id": "26ad4e65-68b0-415e-bdaf-96a2b75d30de",
         "name": "clientes - Search records",
         "alwaysOutputData": true,
         "credentials": {
@@ -137,10 +152,10 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.4,
         "position": [
-          1072,
-          -48
+          5616,
+          2000
         ],
-        "id": "3bacb517-6857-458e-aa4f-95c9f20529a4",
+        "id": "f8b72a41-2408-4f16-9576-d2992a4c74fc",
         "name": "existe?"
       },
       {
@@ -164,21 +179,19 @@
               }
             ]
           },
-          "limitWaitTime": true,
-          "resumeAmount": 6,
           "options": {
             "formTitle": "=Hola {{ $('var_2').item.json.Name }}!",
-            "formDescription": "=🏠 Direccion de entrega: <strong>{{ $('var_2').item.json.direccion_1}}</strong>\n\n📌 Referencia: <strong>{{ $('var_2').item.json.referencia_1 }}</strong>\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
+            "formDescription": "=🏠 Direccion de entrega: <strong>{{ $('var_2').item.json.direccion_1}}</strong>\n\n📌 Referencia: <strong>{{ $('var_2').item.json.referencia_1 }}</strong>",
             "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
           }
         },
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.5,
         "position": [
-          1520,
-          -208
+          6064,
+          1840
         ],
-        "id": "e746d49e-4df1-44af-91a5-09e12415beb8",
+        "id": "3efd5218-703b-4528-8ea1-4009e29e7add",
         "name": "Form1",
         "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
       },
@@ -188,11 +201,6 @@
             "values": [
               {
                 "fieldLabel": "Nombre",
-                "requiredField": true
-              },
-              {
-                "fieldLabel": "Tu numero de celular",
-                "fieldType": "number",
                 "requiredField": true
               },
               {
@@ -210,20 +218,17 @@
               }
             ]
           },
-          "limitWaitTime": true,
-          "resumeAmount": 6,
           "options": {
-            "formDescription": "={{ $('var_0').item.json.link_reiniciar_form }}",
             "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
           }
         },
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.5,
         "position": [
-          1792,
-          592
+          6704,
+          2336
         ],
-        "id": "ee8bb41a-1669-426e-a5b4-1fee559c4a70",
+        "id": "187fb2f5-ca8c-40b9-9526-eda86d5ff22f",
         "name": "Form2",
         "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
       },
@@ -263,14 +268,8 @@
               },
               {
                 "id": "d1202911-7498-44f3-a3fc-5e237b6ac7a1",
-                "name": "dni",
-                "value": "={{ $('var_1').item.json.format_dni }}",
-                "type": "string"
-              },
-              {
-                "id": "8c6500a6-e2dd-412f-a084-47d2272b9049",
                 "name": "numero",
-                "value": "={{  $('clientes - Search records').item.json.fields['cel_1'] }}",
+                "value": "={{ $('var_1').item.json.format_numero }}",
                 "type": "string"
               }
             ]
@@ -280,10 +279,10 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.5,
         "position": [
-          1296,
-          -208
+          5840,
+          1840
         ],
-        "id": "6eab9aa7-a39b-42aa-bce1-2f911b463e65",
+        "id": "d2f4efcc-06e5-4370-8a57-dd3d458ed26a",
         "name": "var_2"
       },
       {
@@ -313,10 +312,10 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.4,
         "position": [
-          1728,
-          -208
+          6272,
+          1840
         ],
-        "id": "cb23f709-c421-4108-a6c5-92b8661a4097",
+        "id": "04c9454c-834c-455c-a869-d27f51c77ca8",
         "name": "direccion corrrecta?"
       },
       {
@@ -335,21 +334,18 @@
               }
             ]
           },
-          "limitWaitTime": true,
-          "resumeAmount": 6,
           "options": {
             "formTitle": "=Coloca tu otra direccion {{ $('var_2').item.json.Name }}",
-            "formDescription": "={{ $('var_0').item.json.link_reiniciar_form }}",
             "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
           }
         },
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.5,
         "position": [
-          2080,
-          -48
+          6624,
+          2000
         ],
-        "id": "822f6cae-d667-4246-b219-20ba83a30274",
+        "id": "e4ee40b5-7cf4-42a8-ad5c-7ea88366aee4",
         "name": "Form3",
         "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
       },
@@ -478,10 +474,10 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.2,
         "position": [
-          2528,
-          -144
+          7072,
+          1904
         ],
-        "id": "7061bcca-c614-49d3-b5f0-9679e9c4b5bc",
+        "id": "d902d6ba-0c2e-4e8f-a07f-33105131d610",
         "name": "Update record",
         "credentials": {
           "airtableOAuth2Api": {
@@ -502,28 +498,21 @@
                 "fieldLabel": "Cantidad de bolsas de hielo que desea",
                 "fieldType": "number",
                 "requiredField": true
-              },
-              {
-                "fieldLabel": "Nota (opcional)",
-                "fieldType": "textarea",
-                "placeholder": "=Escriba aqui alguna indicación o información adicional a tomar en cuenta para su pedido"
               }
             ]
           },
-          "limitWaitTime": true,
-          "resumeAmount": 6,
           "options": {
-            "formDescription": "=Cada bolsa de hielo cuesta S/. 3.5 por mayor y el peso de cada una es de 3.5 kg\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
+            "formDescription": "=Cada bolsa de hielo cuesta S/. 3.5 por mayor y el peso de cada una es de 3.5 kg",
             "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
           }
         },
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.5,
         "position": [
-          5648,
-          32
+          7744,
+          1904
         ],
-        "id": "de3e7f9e-5a73-4191-a516-a9e8ea670e95",
+        "id": "6f1db59b-ae89-449a-a9bb-234f84707dc4",
         "name": "Form4",
         "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
       },
@@ -568,10 +557,10 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.5,
         "position": [
-          2304,
-          32
+          6880,
+          2080
         ],
-        "id": "353fc60c-3875-4dcf-beec-c8ae0a243412",
+        "id": "142f1c3f-289a-47b0-887a-46948fb4c1a8",
         "name": "info_inicial"
       },
       {
@@ -621,10 +610,10 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.5,
         "position": [
-          2336,
-          -368
+          6880,
+          1680
         ],
-        "id": "67f4bdd6-3cd5-4eb8-b439-b9f607853f9c",
+        "id": "9d98a682-1031-4bb0-8ceb-4571cd915268",
         "name": "info_inicial1"
       },
       {
@@ -660,11 +649,28 @@
                 "name": "id_cliente_airtable",
                 "value": "",
                 "type": "string"
-              },
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.5,
+        "position": [
+          6992,
+          2336
+        ],
+        "id": "884dc283-bec9-4828-9bae-573ff994e230",
+        "name": "info_inicial2"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
               {
-                "id": "0e08e9df-cf19-43c7-b02d-0f9dc6400678",
-                "name": "numero",
-                "value": "={{ $json.format_numero }}",
+                "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
+                "name": "format_numero",
+                "value": "=+51{{ $('On form submission').item.json['Tu numero de celular'].toString().slice(-9) }}",
                 "type": "string"
               }
             ]
@@ -674,11 +680,11 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.5,
         "position": [
-          2944,
-          528
+          4224,
+          2064
         ],
-        "id": "7320d406-1757-4a12-b9cf-8a76f3d15996",
-        "name": "info_inicial2"
+        "id": "bf8a1f9e-48c2-437d-ab48-7a7e0fe2c2cc",
+        "name": "format_numero"
       },
       {
         "parameters": {
@@ -692,8 +698,8 @@
             "conditions": [
               {
                 "id": "f2f0686d-b68b-4235-ab53-c1bb182eaf91",
-                "leftValue": "={{ $json.format_dni.toString().length }}",
-                "rightValue": 8,
+                "leftValue": "={{ $json.format_numero.toString().length }}",
+                "rightValue": 12,
                 "operator": {
                   "type": "number",
                   "operation": "equals"
@@ -707,10 +713,10 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.4,
         "position": [
-          -128,
-          16
+          4416,
+          2064
         ],
-        "id": "ce4158a9-c046-418c-ac72-0bfb338f57b2",
+        "id": "bbb489a6-db1d-47bb-95ca-30facdea3f8c",
         "name": "valido?"
       },
       {
@@ -718,26 +724,24 @@
           "formFields": {
             "values": [
               {
-                "fieldLabel": "Escribe tu DNI",
+                "fieldLabel": "Tu numero de celular",
                 "fieldType": "number",
                 "requiredField": true
               }
             ]
           },
-          "limitWaitTime": true,
-          "resumeAmount": 6,
           "options": {
-            "formDescription": "=Coloca un DNI valido\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
+            "formDescription": "=Coloca un numero de celular valido",
             "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
           }
         },
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.5,
         "position": [
-          192,
-          96
+          4736,
+          2144
         ],
-        "id": "e7da7f6c-c42a-4a8b-8c5b-8e49742938a7",
+        "id": "f7cb2293-a224-4da0-b5f7-72a31e843e54",
         "name": "Form5",
         "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
       },
@@ -750,17 +754,28 @@
                 "name": "custom_stylish_form",
                 "value": "=:root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #454545;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #000000;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #ffffff;\n\t--color-header: #ffffff;\n\t--color-label: #ffffff;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #0000000;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #FFA500;\n\t--color-submit-btn-text: #000000;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #FFA500;\n\t--color-html-text: #ffffff;\n\t--color-html-link: #ffffff;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}",
                 "type": "string"
-              },
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.5,
+        "position": [
+          4032,
+          2064
+        ],
+        "id": "9db193d9-3405-48b3-bc2e-5ead1914bd68",
+        "name": "var_0"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
               {
-                "id": "d068137b-a64b-46d4-9244-b9469c35f243",
-                "name": "imagen_yaku_rumi",
-                "value": "<img src=\"https://appzipline.yacurumitech.store/u/rLxm3R.jpeg\"       width=\"150\">",
-                "type": "string"
-              },
-              {
-                "id": "ec9eb668-620f-4a5f-85f8-da208ee3bd73",
-                "name": "link_reiniciar_form",
-                "value": "=<p>Psd: Si deseas reiniciar este formulario<a href=\"https://appn8n.yacurumitech.store/form/42175eed-2f79-4951-8b35-5e0846179093\">,haz click aquí</a></p>",
+                "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
+                "name": "format_numero",
+                "value": "=+51{{ $('Form5').item.json['Tu numero de celular'].toString().slice(-9) }}",
                 "type": "string"
               }
             ]
@@ -770,11 +785,11 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.5,
         "position": [
-          -512,
-          16
+          4928,
+          2144
         ],
-        "id": "66cb1404-eaa8-4e49-8d47-f81399662b77",
-        "name": "var_0"
+        "id": "58f6ad84-5846-4acb-9f55-1fa071544ec1",
+        "name": "format_numero1"
       },
       {
         "parameters": {
@@ -823,10 +838,10 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.5,
         "position": [
-          5392,
-          32
+          7488,
+          1904
         ],
-        "id": "71adae5b-9ca7-4ab9-9c40-7dee482bb89d",
+        "id": "8c367390-903d-4acc-98d3-976efe7e30f9",
         "name": "info_inicial_final"
       },
       {
@@ -841,28 +856,20 @@
                 "fieldLabel": "Cantidad de bolsas de hielo que desea",
                 "fieldType": "number",
                 "requiredField": true
-              },
-              {
-                "fieldLabel": "Nota (opcional)",
-                "fieldType": "textarea",
-                "placeholder": "=Escriba aqui alguna indicación o información adicional a tomar en cuenta para su pedido"
               }
             ]
           },
-          "limitWaitTime": true,
-          "resumeAmount": 6,
           "options": {
-            "formDescription": "={{ $('var_0').item.json.link_reiniciar_form }}",
             "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
           }
         },
         "type": "n8n-nodes-base.form",
         "typeVersion": 2.5,
         "position": [
-          6416,
-          -272
+          8512,
+          1600
         ],
-        "id": "30613ab6-1b34-4ec3-be8b-0304b00c5147",
+        "id": "f167701b-43d8-4ec0-ba51-ceec89d4faaa",
         "name": "Form6",
         "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
       },
@@ -875,12 +882,6 @@
                 "name": "cantidad_de_bolsas",
                 "value": "={{ $('Form4').item.json['Cantidad de bolsas de hielo que desea'] }}",
                 "type": "number"
-              },
-              {
-                "id": "23f20e06-0120-433f-8e07-255eec895756",
-                "name": "nota",
-                "value": "={{ $('Form4').item.json['Nota (opcional)'] }}",
-                "type": "string"
               }
             ]
           },
@@ -889,10 +890,10 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.5,
         "position": [
-          5888,
-          32
+          7984,
+          1904
         ],
-        "id": "5232d2aa-d57c-454d-9f64-8527980b3b8b",
+        "id": "c66fac97-b31b-4ad5-bf62-551ee429d4f4",
         "name": "cantidad_de_bolsas"
       },
       {
@@ -922,10 +923,10 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.4,
         "position": [
-          6080,
-          32
+          8176,
+          1904
         ],
-        "id": "36c9b604-2ba6-4378-b4b6-ca8bb24ea8ab",
+        "id": "176b857a-b4b0-4800-8f7e-77bb8e854ed3",
         "name": "es igual o menor a 3?"
       },
       {
@@ -937,12 +938,6 @@
                 "name": "cantidad_de_bolsas",
                 "value": "={{ $('Form6').item.json['Cantidad de bolsas de hielo que desea'] }}",
                 "type": "number"
-              },
-              {
-                "id": "1b27f66f-d1a6-4c8e-aa95-b6684b4c3a3c",
-                "name": "nota",
-                "value": "={{ $('Form6').item.json['Nota (opcional)'] }}",
-                "type": "string"
               }
             ]
           },
@@ -951,10 +946,10 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.5,
         "position": [
-          6608,
-          -272
+          8704,
+          1600
         ],
-        "id": "cc4c2f10-3fc7-4415-b7d4-db1fada2e5bb",
+        "id": "13f25bf4-cd5d-4e4c-afe1-1dcc409f5b2f",
         "name": "cantidad_de_bolsas1"
       },
       {
@@ -966,12 +961,6 @@
                 "name": "cantidad_de_bolsas",
                 "value": "={{ $json.cantidad_de_bolsas }}",
                 "type": "number"
-              },
-              {
-                "id": "d1b5013d-dde8-4e8d-8c97-0b8eea71e8d8",
-                "name": "nota",
-                "value": "={{ $json.nota }}",
-                "type": "string"
               }
             ]
           },
@@ -980,10 +969,10 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.5,
         "position": [
-          6384,
-          96
+          8480,
+          1968
         ],
-        "id": "b050250b-529a-4b7b-8ae2-f908dbbb9c86",
+        "id": "f4811fcf-556a-4d2c-88af-a5dcab467c78",
         "name": "cantidad_de_bolsas_final"
       },
       {
@@ -1014,10 +1003,10 @@
         "type": "n8n-nodes-base.if",
         "typeVersion": 2.4,
         "position": [
-          6864,
-          96
+          8960,
+          1968
         ],
-        "id": "6566695e-3c46-48a2-9164-d2ce68606afc",
+        "id": "573ebca8-3217-4225-891c-2f2197f75786",
         "name": "esta_vacio_id_cliente?"
       },
       {
@@ -1037,10 +1026,10 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.5,
         "position": [
-          7568,
-          64
+          9664,
+          1936
         ],
-        "id": "229463d0-972d-4353-8a57-c0cf9428be38",
+        "id": "904604d4-5774-4b62-8413-822f82f58556",
         "name": "id_cliente_final"
       },
       {
@@ -1165,10 +1154,10 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.2,
         "position": [
-          7136,
-          -48
+          9232,
+          1824
         ],
-        "id": "e8c3ad4a-ea85-406a-a171-c34ff1fd734e",
+        "id": "06136380-52a3-4039-ba2e-c923cd0127ea",
         "name": "Create a record1",
         "credentials": {
           "airtableOAuth2Api": {
@@ -1194,10 +1183,10 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.5,
         "position": [
-          7376,
-          240
+          9472,
+          2112
         ],
-        "id": "08806741-efbf-4338-b99f-636fffa8ea68",
+        "id": "f59471b9-e4cb-4e20-9b48-7de7cad2f7db",
         "name": "id_cliente"
       },
       {
@@ -1217,10 +1206,10 @@
         "type": "n8n-nodes-base.set",
         "typeVersion": 3.5,
         "position": [
-          7344,
-          -48
+          9440,
+          1824
         ],
-        "id": "34e86f69-0f06-4afc-b111-a76560459b73",
+        "id": "fd1e9b05-3cc8-4138-8a17-e66e36e6a32b",
         "name": "id_cliente1"
       },
       {
@@ -1362,10 +1351,10 @@
         "type": "n8n-nodes-base.airtable",
         "typeVersion": 2.2,
         "position": [
-          7840,
-          64
+          9936,
+          1936
         ],
-        "id": "ead7ec62-2930-4942-b5ce-f9239a68de27",
+        "id": "26f73c82-f8a7-4b2d-ba5b-293b9e66223a",
         "name": "Pedidos - Create a record",
         "credentials": {
           "airtableOAuth2Api": {
@@ -1373,759 +1362,6 @@
             "name": "airtable_1"
           }
         }
-      },
-      {
-        "parameters": {
-          "content": "## cambiar celular por DNI",
-          "height": 96
-        },
-        "type": "n8n-nodes-base.stickyNote",
-        "typeVersion": 1,
-        "position": [
-          -160,
-          -384
-        ],
-        "id": "a797ae49-5c73-4d5a-867a-42b4dd45beb8",
-        "name": "Sticky Note"
-      },
-      {
-        "parameters": {
-          "content": "## cambiar celular por DNI",
-          "height": 96
-        },
-        "type": "n8n-nodes-base.stickyNote",
-        "typeVersion": 1,
-        "position": [
-          3536,
-          -944
-        ],
-        "id": "a5cabd69-0232-429d-a2ef-6d9ec0123fd1",
-        "name": "Sticky Note1"
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
-                "name": "format_dni",
-                "value": "={{ $('On form submission').item.json['Escribe tu DNI'].toString().slice(-8) }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.5,
-        "position": [
-          -320,
-          16
-        ],
-        "id": "c41b3a17-c870-46c9-97cc-9e9dcfae1cda",
-        "name": "format_dni"
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
-                "name": "format_dni",
-                "value": "=+51{{ $('Form5').item.json['Escribe tu DNI'].toString().slice(-9) }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.5,
-        "position": [
-          384,
-          96
-        ],
-        "id": "d39954fa-fb2f-4a0a-914f-d373b5219cf7",
-        "name": "format_dni1"
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
-                "name": "format_numero",
-                "value": "=+51{{ $('Form2').item.json['Tu numero de celular'].toString().slice(-9) }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.5,
-        "position": [
-          2032,
-          592
-        ],
-        "id": "3260d80f-7bf1-4421-a123-a23397b2979e",
-        "name": "format_numero4"
-      },
-      {
-        "parameters": {
-          "conditions": {
-            "options": {
-              "caseSensitive": true,
-              "leftValue": "",
-              "typeValidation": "strict",
-              "version": 4
-            },
-            "conditions": [
-              {
-                "id": "f2f0686d-b68b-4235-ab53-c1bb182eaf91",
-                "leftValue": "={{ $json.format_numero.toString().length }}",
-                "rightValue": 12,
-                "operator": {
-                  "type": "number",
-                  "operation": "equals"
-                }
-              }
-            ],
-            "combinator": "and"
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.if",
-        "typeVersion": 2.4,
-        "position": [
-          2224,
-          592
-        ],
-        "id": "d756dcf5-9ad5-4151-8669-81dc61c4b5f3",
-        "name": "valido?2"
-      },
-      {
-        "parameters": {
-          "formFields": {
-            "values": [
-              {
-                "fieldLabel": "Tu numero de celular",
-                "fieldType": "number",
-                "requiredField": true
-              }
-            ]
-          },
-          "limitWaitTime": true,
-          "resumeAmount": 6,
-          "options": {
-            "formDescription": "=Coloca un numero de celular valido\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
-            "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
-          }
-        },
-        "type": "n8n-nodes-base.form",
-        "typeVersion": 2.5,
-        "position": [
-          2544,
-          768
-        ],
-        "id": "5555be92-d7a0-4a9e-bc39-5147831c3aaf",
-        "name": "Form8",
-        "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
-                "name": "format_numero",
-                "value": "=+51{{ $('Form8').item.json['Tu numero de celular'].toString().slice(-9) }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.5,
-        "position": [
-          2736,
-          768
-        ],
-        "id": "c98ffbd1-f1dc-4fe9-9539-8f82546d4858",
-        "name": "format_numero5"
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
-                "name": "direccion_1",
-                "value": "={{ $json.direccion_1 }}",
-                "type": "string"
-              },
-              {
-                "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
-                "name": "referencia_1",
-                "value": "={{ $json.referencia_1 }}",
-                "type": "string"
-              },
-              {
-                "id": "bd518f7f-9d78-4105-9048-a0fd0c987685",
-                "name": "Name",
-                "value": "={{ $json.Name }}",
-                "type": "string"
-              },
-              {
-                "id": "f6f84053-f553-4e48-8499-13116707ef3c",
-                "name": "nombre_empresa",
-                "value": "={{ $json.nombre_empresa }}",
-                "type": "string"
-              },
-              {
-                "id": "81ac83bf-e268-4238-951e-d655b5acf132",
-                "name": "id_cliente_airtable",
-                "value": "={{ $json.id_cliente_airtable }}",
-                "type": "string"
-              },
-              {
-                "id": "1d725c14-1019-47b5-9e53-7811339bf305",
-                "name": "numero",
-                "value": "={{ $json.numero }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.5,
-        "position": [
-          2880,
-          -144
-        ],
-        "id": "a070c5ce-dd6e-420c-b08d-f940b5437b26",
-        "name": "info_inicial_final1"
-      },
-      {
-        "parameters": {
-          "formFields": {
-            "values": [
-              {
-                "fieldLabel": "=¿Confirmas que tu celular mencionado arriba es correcto para coordinar el envio?",
-                "fieldType": "radio",
-                "fieldOptions": {
-                  "values": [
-                    {
-                      "option": "Si, escríbeme a ese numero"
-                    },
-                    {
-                      "option": "No, quiero cambiar el numero"
-                    }
-                  ]
-                },
-                "requiredField": true
-              }
-            ]
-          },
-          "limitWaitTime": true,
-          "resumeAmount": 6,
-          "options": {
-            "formTitle": "=Hola {{ $('var_2').item.json.Name }}!",
-            "formDescription": "=📱 Tu celular: <strong>{{ $('info_inicial_final1').item.json.numero}}</strong>\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
-            "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
-          }
-        },
-        "type": "n8n-nodes-base.form",
-        "typeVersion": 2.5,
-        "position": [
-          3104,
-          -144
-        ],
-        "id": "89533e6b-21f1-4402-8df3-6bf8781343d7",
-        "name": "Form10",
-        "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
-      },
-      {
-        "parameters": {
-          "formFields": {
-            "values": [
-              {
-                "fieldLabel": "=Direccion",
-                "fieldType": "textarea",
-                "requiredField": true
-              }
-            ]
-          },
-          "limitWaitTime": true,
-          "resumeAmount": 6,
-          "options": {
-            "formTitle": "=Coloca tu otro numero {{ $('var_2').item.json.Name }}",
-            "formDescription": "={{ $('var_0').item.json.link_reiniciar_form }}",
-            "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
-          }
-        },
-        "type": "n8n-nodes-base.form",
-        "typeVersion": 2.5,
-        "position": [
-          3680,
-          -32
-        ],
-        "id": "cc435f75-2595-44ce-a59e-69a0ef40c657",
-        "name": "Form11",
-        "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
-      },
-      {
-        "parameters": {
-          "authentication": "airtableOAuth2Api",
-          "operation": "update",
-          "base": {
-            "__rl": true,
-            "value": "appOfjZfaZNzPLsVL",
-            "mode": "list",
-            "cachedResultName": "Inventario Yacu Rumi",
-            "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL"
-          },
-          "table": {
-            "__rl": true,
-            "value": "tblVZXwp2xYvnNCgY",
-            "mode": "list",
-            "cachedResultName": "Clientes",
-            "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL/tblVZXwp2xYvnNCgY"
-          },
-          "columns": {
-            "mappingMode": "defineBelow",
-            "value": {
-              "id": "={{ $('var_2').item.json.id_cliente_airtable }}",
-              "cel_1": "={{ $json.numero }}"
-            },
-            "matchingColumns": [
-              "id"
-            ],
-            "schema": [
-              {
-                "id": "id",
-                "displayName": "id",
-                "required": false,
-                "defaultMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": false
-              },
-              {
-                "id": "id_cliente",
-                "displayName": "id_cliente",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              },
-              {
-                "id": "DNI",
-                "displayName": "DNI",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": false,
-                "removed": true
-              },
-              {
-                "id": "Name",
-                "displayName": "Name",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": false,
-                "removed": true
-              },
-              {
-                "id": "Nombre Empresa",
-                "displayName": "Nombre Empresa",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": false,
-                "removed": true
-              },
-              {
-                "id": "cel_1",
-                "displayName": "cel_1",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": false,
-                "removed": false
-              },
-              {
-                "id": "direccion_1",
-                "displayName": "direccion_1",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": false,
-                "removed": true
-              },
-              {
-                "id": "referencia_1",
-                "displayName": "referencia_1",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": false,
-                "removed": true
-              },
-              {
-                "id": "Pedidos",
-                "displayName": "Pedidos",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "array",
-                "readOnly": false,
-                "removed": true
-              },
-              {
-                "id": "ID_autonumber",
-                "displayName": "ID_autonumber",
-                "required": false,
-                "defaultMatch": false,
-                "canBeUsedToMatch": true,
-                "display": true,
-                "type": "string",
-                "readOnly": true,
-                "removed": true
-              }
-            ],
-            "attemptToConvertTypes": false,
-            "convertFieldsToString": false
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.airtable",
-        "typeVersion": 2.2,
-        "position": [
-          4672,
-          -224
-        ],
-        "id": "8dc8c1e1-9e23-4adc-aadf-2f70456b9776",
-        "name": "Update record1",
-        "credentials": {
-          "airtableOAuth2Api": {
-            "id": "U3oq6D2Bm4IFm5pA",
-            "name": "airtable_1"
-          }
-        }
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
-                "name": "direccion_1",
-                "value": "={{ $('Form11').item.json.Direccion }}",
-                "type": "string"
-              },
-              {
-                "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
-                "name": "referencia_1",
-                "value": "={{ $('Form11').item.json.Referencia }}",
-                "type": "string"
-              },
-              {
-                "id": "33ed4566-420e-48fd-877d-df4c7a65570e",
-                "name": "Name",
-                "value": "={{ $('var_2').item.json.Name }}",
-                "type": "string"
-              },
-              {
-                "id": "251418f9-225e-42c5-b5fe-44f50ed95212",
-                "name": "nombre_empresa",
-                "value": "={{ $('var_2').item.json.nombre_empresa }}",
-                "type": "string"
-              },
-              {
-                "id": "28cc92ae-7934-4616-93c1-f93bcf765be4",
-                "name": "id_cliente_airtable",
-                "value": "={{ $('var_2').item.json.id_cliente_airtable }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.5,
-        "position": [
-          4176,
-          -656
-        ],
-        "id": "2adc511d-9818-46be-8101-d744c3b1df07",
-        "name": "info_inicial3"
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
-                "name": "direccion_1",
-                "value": "={{ $('info_inicial_final1').item.json.direccion_1 }}",
-                "type": "string"
-              },
-              {
-                "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
-                "name": "referencia_1",
-                "value": "={{ $('info_inicial_final1').item.json.referencia_1 }}",
-                "type": "string"
-              },
-              {
-                "id": "a941c968-86ff-4db4-979a-cee03aa93ae3",
-                "name": "Name",
-                "value": "={{ $('info_inicial_final1').item.json.Name }}",
-                "type": "string"
-              },
-              {
-                "id": "437e1114-1d28-437e-9758-e4cf15e15634",
-                "name": "nombre_empresa",
-                "value": "={{ $('info_inicial_final1').item.json.nombre_empresa }}",
-                "type": "string"
-              },
-              {
-                "id": "5ec69d5a-0daa-46b2-aca3-7cdb7e1c2b96",
-                "name": "id_cliente_airtable",
-                "value": "={{ $('info_inicial_final1').item.json.id_cliente_airtable }}",
-                "type": "string"
-              },
-              {
-                "id": "30f6e14d-566e-4673-8beb-73e89f119821",
-                "name": "numero",
-                "value": "={{ $('info_inicial_final1').item.json.numero }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.5,
-        "position": [
-          4448,
-          -448
-        ],
-        "id": "c8a04cfb-2f73-4e9d-b3c0-313790d8e6d2",
-        "name": "info_inicial4"
-      },
-      {
-        "parameters": {
-          "conditions": {
-            "options": {
-              "caseSensitive": true,
-              "leftValue": "",
-              "typeValidation": "strict",
-              "version": 4
-            },
-            "conditions": [
-              {
-                "id": "ba36557e-ae74-428e-9214-20afbed3a10a",
-                "leftValue": "={{ $('Form10').item.json['¿Confirmas que tu celular mencionado arriba es correcto para coordinar el envio?'] }}",
-                "rightValue": "Si, escríbeme a ese numero",
-                "operator": {
-                  "type": "string",
-                  "operation": "equals"
-                }
-              }
-            ],
-            "combinator": "and"
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.if",
-        "typeVersion": 2.4,
-        "position": [
-          3312,
-          -144
-        ],
-        "id": "d835d769-f2c7-4dfb-bcda-9aa28b67a7b7",
-        "name": "celular?"
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
-                "name": "format_numero",
-                "value": "=+51{{ $('Form11').item.json['Tu numero de celular'].toString().slice(-9) }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.5,
-        "position": [
-          3936,
-          -32
-        ],
-        "id": "490a7ddf-ddec-4242-bcdf-d8cad22c4538",
-        "name": "format_numero6"
-      },
-      {
-        "parameters": {
-          "conditions": {
-            "options": {
-              "caseSensitive": true,
-              "leftValue": "",
-              "typeValidation": "strict",
-              "version": 4
-            },
-            "conditions": [
-              {
-                "id": "f2f0686d-b68b-4235-ab53-c1bb182eaf91",
-                "leftValue": "={{ $json.format_numero.toString().length }}",
-                "rightValue": 12,
-                "operator": {
-                  "type": "number",
-                  "operation": "equals"
-                }
-              }
-            ],
-            "combinator": "and"
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.if",
-        "typeVersion": 2.4,
-        "position": [
-          4128,
-          -32
-        ],
-        "id": "a456b94d-ac10-440f-aab4-551f7bf5352a",
-        "name": "valido?3"
-      },
-      {
-        "parameters": {
-          "formFields": {
-            "values": [
-              {
-                "fieldLabel": "Tu numero de celular",
-                "fieldType": "number",
-                "requiredField": true
-              }
-            ]
-          },
-          "limitWaitTime": true,
-          "resumeAmount": 6,
-          "options": {
-            "formDescription": "=Coloca un numero de celular valido\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
-            "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
-          }
-        },
-        "type": "n8n-nodes-base.form",
-        "typeVersion": 2.5,
-        "position": [
-          4448,
-          144
-        ],
-        "id": "948a3b30-132d-41e4-89ee-e9ffdd5e2129",
-        "name": "Form9",
-        "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
-                "name": "format_numero",
-                "value": "=+51{{ $('Form9').item.json['Tu numero de celular'].toString().slice(-9) }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.5,
-        "position": [
-          4640,
-          144
-        ],
-        "id": "4d7578a2-28b7-4725-8e2b-141a9291fce2",
-        "name": "format_numero7"
-      },
-      {
-        "parameters": {
-          "assignments": {
-            "assignments": [
-              {
-                "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
-                "name": "direccion_1",
-                "value": "={{ $('info_inicial_final1').item.json.direccion_1 }}",
-                "type": "string"
-              },
-              {
-                "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
-                "name": "referencia_1",
-                "value": "={{ $('info_inicial_final1').item.json.referencia_1 }}",
-                "type": "string"
-              },
-              {
-                "id": "a941c968-86ff-4db4-979a-cee03aa93ae3",
-                "name": "Name",
-                "value": "={{ $('info_inicial_final1').item.json.Name }}",
-                "type": "string"
-              },
-              {
-                "id": "437e1114-1d28-437e-9758-e4cf15e15634",
-                "name": "nombre_empresa",
-                "value": "={{ $('info_inicial_final1').item.json.nombre_empresa }}",
-                "type": "string"
-              },
-              {
-                "id": "5ec69d5a-0daa-46b2-aca3-7cdb7e1c2b96",
-                "name": "id_cliente_airtable",
-                "value": "={{ $('info_inicial_final1').item.json.id_cliente_airtable }}",
-                "type": "string"
-              },
-              {
-                "id": "30f6e14d-566e-4673-8beb-73e89f119821",
-                "name": "numero",
-                "value": "={{ $json.format_numero }}",
-                "type": "string"
-              }
-            ]
-          },
-          "options": {}
-        },
-        "type": "n8n-nodes-base.set",
-        "typeVersion": 3.5,
-        "position": [
-          4416,
-          -96
-        ],
-        "id": "ed3c75cd-96dd-4d1c-be2b-de44d5062027",
-        "name": "info_inicial5"
       }
     ],
     "connections": {
@@ -2191,22 +1427,33 @@
           ]
         ]
       },
-      "var_2": {
+      "Form1": {
         "main": [
           [
             {
-              "node": "Form1",
+              "node": "direccion corrrecta?",
               "type": "main",
               "index": 0
             }
           ]
         ]
       },
-      "Form1": {
+      "Form2": {
         "main": [
           [
             {
-              "node": "direccion corrrecta?",
+              "node": "info_inicial2",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "var_2": {
+        "main": [
+          [
+            {
+              "node": "Form1",
               "type": "main",
               "index": 0
             }
@@ -2242,9 +1489,15 @@
           ]
         ]
       },
-      "Update record": {
+      "Form4": {
         "main": [
-          []
+          [
+            {
+              "node": "cantidad_de_bolsas",
+              "type": "main",
+              "index": 0
+            }
+          ]
         ]
       },
       "info_inicial": {
@@ -2256,7 +1509,7 @@
               "index": 0
             },
             {
-              "node": "info_inicial_final1",
+              "node": "info_inicial_final",
               "type": "main",
               "index": 0
             }
@@ -2267,18 +1520,29 @@
         "main": [
           [
             {
-              "node": "info_inicial_final1",
+              "node": "info_inicial_final",
               "type": "main",
               "index": 0
             }
           ]
         ]
       },
-      "Form2": {
+      "info_inicial2": {
         "main": [
           [
             {
-              "node": "format_numero4",
+              "node": "info_inicial_final",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "format_numero": {
+        "main": [
+          [
+            {
+              "node": "valido?",
               "type": "main",
               "index": 0
             }
@@ -2303,22 +1567,33 @@
           ]
         ]
       },
-      "var_0": {
+      "Form5": {
         "main": [
           [
             {
-              "node": "format_dni",
+              "node": "format_numero1",
               "type": "main",
               "index": 0
             }
           ]
         ]
       },
-      "Form5": {
+      "var_0": {
         "main": [
           [
             {
-              "node": "format_dni1",
+              "node": "format_numero",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "format_numero1": {
+        "main": [
+          [
+            {
+              "node": "valido?",
               "type": "main",
               "index": 0
             }
@@ -2336,33 +1611,11 @@
           ]
         ]
       },
-      "info_inicial2": {
-        "main": [
-          [
-            {
-              "node": "info_inicial_final",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
       "Form6": {
         "main": [
           [
             {
               "node": "cantidad_de_bolsas1",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Form4": {
-        "main": [
-          [
-            {
-              "node": "cantidad_de_bolsas",
               "type": "main",
               "index": 0
             }
@@ -2438,6 +1691,28 @@
           ]
         ]
       },
+      "id_cliente_final": {
+        "main": [
+          [
+            {
+              "node": "Pedidos - Create a record",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Create a record1": {
+        "main": [
+          [
+            {
+              "node": "id_cliente1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
       "id_cliente": {
         "main": [
           [
@@ -2459,246 +1734,17 @@
             }
           ]
         ]
-      },
-      "Create a record1": {
-        "main": [
-          [
-            {
-              "node": "id_cliente1",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "id_cliente_final": {
-        "main": [
-          [
-            {
-              "node": "Pedidos - Create a record",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "format_dni": {
-        "main": [
-          [
-            {
-              "node": "valido?",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "format_dni1": {
-        "main": [
-          [
-            {
-              "node": "valido?",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "format_numero4": {
-        "main": [
-          [
-            {
-              "node": "valido?2",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "valido?2": {
-        "main": [
-          [
-            {
-              "node": "info_inicial2",
-              "type": "main",
-              "index": 0
-            }
-          ],
-          [
-            {
-              "node": "Form8",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Form8": {
-        "main": [
-          [
-            {
-              "node": "format_numero5",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "format_numero5": {
-        "main": [
-          [
-            {
-              "node": "valido?2",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "info_inicial_final1": {
-        "main": [
-          [
-            {
-              "node": "Form10",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Form10": {
-        "main": [
-          [
-            {
-              "node": "celular?",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Form11": {
-        "main": [
-          [
-            {
-              "node": "format_numero6",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "info_inicial3": {
-        "main": [
-          []
-        ]
-      },
-      "celular?": {
-        "main": [
-          [
-            {
-              "node": "info_inicial4",
-              "type": "main",
-              "index": 0
-            }
-          ],
-          [
-            {
-              "node": "Form11",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "format_numero6": {
-        "main": [
-          [
-            {
-              "node": "valido?3",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "valido?3": {
-        "main": [
-          [
-            {
-              "node": "info_inicial5",
-              "type": "main",
-              "index": 0
-            }
-          ],
-          [
-            {
-              "node": "Form9",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "Form9": {
-        "main": [
-          [
-            {
-              "node": "format_numero7",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "format_numero7": {
-        "main": [
-          [
-            {
-              "node": "valido?3",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "info_inicial5": {
-        "main": [
-          [
-            {
-              "node": "Update record1",
-              "type": "main",
-              "index": 0
-            },
-            {
-              "node": "info_inicial_final",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "info_inicial4": {
-        "main": [
-          [
-            {
-              "node": "info_inicial_final",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
       }
     },
     "nodeGroups": [],
     "authors": "Jose Caceres",
-    "name": "Version 81d6dc1f",
+    "name": "Version 36a47e69",
     "description": "",
     "autosaved": true,
-    "createdAt": "2026-11-17T21:51:23.188Z",
-    "updatedAt": "2026-11-17T21:51:24.977Z"
+    "createdAt": "2026-11-18T17:59:14.948Z",
+    "updatedAt": "2026-11-18T17:59:16.917Z"
   },
-  "activeVersionId": "81d6dc1f-4327-46f8-80be-e7dea6d00036",
+  "activeVersionId": "36a47e69-e3ee-4465-af15-9bce5bd93c7a",
   "connections": {
     "On form submission": {
       "main": [
@@ -2762,22 +1808,33 @@
         ]
       ]
     },
-    "var_2": {
+    "Form1": {
       "main": [
         [
           {
-            "node": "Form1",
+            "node": "direccion corrrecta?",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Form1": {
+    "Form2": {
       "main": [
         [
           {
-            "node": "direccion corrrecta?",
+            "node": "info_inicial2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "var_2": {
+      "main": [
+        [
+          {
+            "node": "Form1",
             "type": "main",
             "index": 0
           }
@@ -2813,9 +1870,15 @@
         ]
       ]
     },
-    "Update record": {
+    "Form4": {
       "main": [
-        []
+        [
+          {
+            "node": "cantidad_de_bolsas",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     },
     "info_inicial": {
@@ -2827,7 +1890,7 @@
             "index": 0
           },
           {
-            "node": "info_inicial_final1",
+            "node": "info_inicial_final",
             "type": "main",
             "index": 0
           }
@@ -2838,18 +1901,29 @@
       "main": [
         [
           {
-            "node": "info_inicial_final1",
+            "node": "info_inicial_final",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Form2": {
+    "info_inicial2": {
       "main": [
         [
           {
-            "node": "format_numero4",
+            "node": "info_inicial_final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "format_numero": {
+      "main": [
+        [
+          {
+            "node": "valido?",
             "type": "main",
             "index": 0
           }
@@ -2874,22 +1948,33 @@
         ]
       ]
     },
-    "var_0": {
+    "Form5": {
       "main": [
         [
           {
-            "node": "format_dni",
+            "node": "format_numero1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Form5": {
+    "var_0": {
       "main": [
         [
           {
-            "node": "format_dni1",
+            "node": "format_numero",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "format_numero1": {
+      "main": [
+        [
+          {
+            "node": "valido?",
             "type": "main",
             "index": 0
           }
@@ -2907,33 +1992,11 @@
         ]
       ]
     },
-    "info_inicial2": {
-      "main": [
-        [
-          {
-            "node": "info_inicial_final",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Form6": {
       "main": [
         [
           {
             "node": "cantidad_de_bolsas1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Form4": {
-      "main": [
-        [
-          {
-            "node": "cantidad_de_bolsas",
             "type": "main",
             "index": 0
           }
@@ -3009,6 +2072,28 @@
         ]
       ]
     },
+    "id_cliente_final": {
+      "main": [
+        [
+          {
+            "node": "Pedidos - Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a record1": {
+      "main": [
+        [
+          {
+            "node": "id_cliente1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
     "id_cliente": {
       "main": [
         [
@@ -3030,235 +2115,6 @@
           }
         ]
       ]
-    },
-    "Create a record1": {
-      "main": [
-        [
-          {
-            "node": "id_cliente1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "id_cliente_final": {
-      "main": [
-        [
-          {
-            "node": "Pedidos - Create a record",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "format_dni": {
-      "main": [
-        [
-          {
-            "node": "valido?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "format_dni1": {
-      "main": [
-        [
-          {
-            "node": "valido?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "format_numero4": {
-      "main": [
-        [
-          {
-            "node": "valido?2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "valido?2": {
-      "main": [
-        [
-          {
-            "node": "info_inicial2",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Form8",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Form8": {
-      "main": [
-        [
-          {
-            "node": "format_numero5",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "format_numero5": {
-      "main": [
-        [
-          {
-            "node": "valido?2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "info_inicial_final1": {
-      "main": [
-        [
-          {
-            "node": "Form10",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Form10": {
-      "main": [
-        [
-          {
-            "node": "celular?",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Form11": {
-      "main": [
-        [
-          {
-            "node": "format_numero6",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "info_inicial3": {
-      "main": [
-        []
-      ]
-    },
-    "celular?": {
-      "main": [
-        [
-          {
-            "node": "info_inicial4",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Form11",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "format_numero6": {
-      "main": [
-        [
-          {
-            "node": "valido?3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "valido?3": {
-      "main": [
-        [
-          {
-            "node": "info_inicial5",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Form9",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Form9": {
-      "main": [
-        [
-          {
-            "node": "format_numero7",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "format_numero7": {
-      "main": [
-        [
-          {
-            "node": "valido?3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "info_inicial5": {
-      "main": [
-        [
-          {
-            "node": "Update record1",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "info_inicial_final",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "info_inicial4": {
-      "main": [
-        [
-          {
-            "node": "info_inicial_final",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
     }
   },
   "createdAt": "2026-11-01T00:56:27.521Z",
@@ -3267,17 +2123,32 @@
   "meta": {
     "templateCredsSetupCompleted": true
   },
-  "name": "Form. de pedidos",
+  "name": "Form. de pedidos v2",
   "nodeGroups": [],
   "nodes": [
     {
       "parameters": {
-        "formTitle": "Pedidos de Hielo Yacu Rumi",
+        "content": "## revisar si tiene pedido en prepago",
+        "height": 128,
+        "width": 432
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        6896,
+        1072
+      ],
+      "id": "a797ae49-5c73-4d5a-867a-42b4dd45beb8",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "formTitle": "Pedidos de Hielo Yaku Rumi",
         "formDescription": "<img src=\"https://appzipline.yacurumitech.store/u/rLxm3R.jpeg\" \n     width=\"150\">\n\nNuestros horarios de atención ☝🏼\n\nLunes a Sábado \n8am - 1pm/4pm - 7pm\n\nDomingos y Feriados \n8am - 1pm \n\n*Si nos escribiste fuera de horario, por favor deja tus datos que nosotros nos podremos en contacto contigo \n\n*Recuerda que la recepción de pedido es hasta las 6pm ",
         "formFields": {
           "values": [
             {
-              "fieldLabel": "Escribe tu DNI",
+              "fieldLabel": "Tu numero de celular",
               "fieldType": "number",
               "requiredField": true
             }
@@ -3292,12 +2163,12 @@
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.6,
       "position": [
-        -752,
-        16
+        3792,
+        2064
       ],
-      "id": "a48963d5-0c5e-4ee0-a0e9-54b5945f6f2e",
+      "id": "52a2a5bf-2b01-4d2b-a77e-1753aeaa23de",
       "name": "On form submission",
-      "webhookId": "42175eed-2f79-4951-8b35-5e0846179093"
+      "webhookId": "2a8b8154-c732-4c6a-9b74-e3efd28599f2"
     },
     {
       "parameters": {
@@ -3308,10 +2179,10 @@
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.5,
       "position": [
-        7776,
-        96
+        8736,
+        1968
       ],
-      "id": "7e2e4b07-1639-416f-aa5c-6a0a53dcc3e8",
+      "id": "c440661c-be81-4a71-b392-b02d660366e8",
       "name": "Form",
       "webhookId": "8faa38e0-6969-44f4-8818-4c921e7674cf"
     },
@@ -3321,8 +2192,8 @@
           "assignments": [
             {
               "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
-              "name": "format_dni",
-              "value": "={{ $json.format_dni }}",
+              "name": "format_numero",
+              "value": "={{ $json.format_numero }}",
               "type": "string"
             }
           ]
@@ -3332,10 +2203,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        576,
-        -48
+        5120,
+        2000
       ],
-      "id": "cff607b7-580a-45b9-b866-0eb38838d76f",
+      "id": "3ea5329e-77c5-4bf5-b9e5-35102a247818",
       "name": "var_1"
     },
     {
@@ -3356,16 +2227,16 @@
           "cachedResultName": "Clientes",
           "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL/tblVZXwp2xYvnNCgY"
         },
-        "filterByFormula": "={DNI}=\"{{ $('var_1').item.json.format_dni}}\"",
+        "filterByFormula": "={cel_1}=\"{{ $('var_1').item.json.format_numero}}\"",
         "options": {}
       },
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.2,
       "position": [
-        848,
-        -48
+        5392,
+        2000
       ],
-      "id": "152ad5c8-ce16-4027-ab9a-2ef32f21a966",
+      "id": "26ad4e65-68b0-415e-bdaf-96a2b75d30de",
       "name": "clientes - Search records",
       "alwaysOutputData": true,
       "credentials": {
@@ -3403,10 +2274,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.4,
       "position": [
-        1072,
-        -48
+        5616,
+        2000
       ],
-      "id": "3bacb517-6857-458e-aa4f-95c9f20529a4",
+      "id": "f8b72a41-2408-4f16-9576-d2992a4c74fc",
       "name": "existe?"
     },
     {
@@ -3430,21 +2301,19 @@
             }
           ]
         },
-        "limitWaitTime": true,
-        "resumeAmount": 6,
         "options": {
           "formTitle": "=Hola {{ $('var_2').item.json.Name }}!",
-          "formDescription": "=🏠 Direccion de entrega: <strong>{{ $('var_2').item.json.direccion_1}}</strong>\n\n📌 Referencia: <strong>{{ $('var_2').item.json.referencia_1 }}</strong>\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
+          "formDescription": "=🏠 Direccion de entrega: <strong>{{ $('var_2').item.json.direccion_1}}</strong>\n\n📌 Referencia: <strong>{{ $('var_2').item.json.referencia_1 }}</strong>",
           "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
         }
       },
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.5,
       "position": [
-        1520,
-        -208
+        6064,
+        1840
       ],
-      "id": "e746d49e-4df1-44af-91a5-09e12415beb8",
+      "id": "3efd5218-703b-4528-8ea1-4009e29e7add",
       "name": "Form1",
       "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
     },
@@ -3454,11 +2323,6 @@
           "values": [
             {
               "fieldLabel": "Nombre",
-              "requiredField": true
-            },
-            {
-              "fieldLabel": "Tu numero de celular",
-              "fieldType": "number",
               "requiredField": true
             },
             {
@@ -3476,20 +2340,17 @@
             }
           ]
         },
-        "limitWaitTime": true,
-        "resumeAmount": 6,
         "options": {
-          "formDescription": "={{ $('var_0').item.json.link_reiniciar_form }}",
           "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
         }
       },
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.5,
       "position": [
-        1792,
-        592
+        6704,
+        2336
       ],
-      "id": "ee8bb41a-1669-426e-a5b4-1fee559c4a70",
+      "id": "187fb2f5-ca8c-40b9-9526-eda86d5ff22f",
       "name": "Form2",
       "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
     },
@@ -3529,14 +2390,8 @@
             },
             {
               "id": "d1202911-7498-44f3-a3fc-5e237b6ac7a1",
-              "name": "dni",
-              "value": "={{ $('var_1').item.json.format_dni }}",
-              "type": "string"
-            },
-            {
-              "id": "8c6500a6-e2dd-412f-a084-47d2272b9049",
               "name": "numero",
-              "value": "={{  $('clientes - Search records').item.json.fields['cel_1'] }}",
+              "value": "={{ $('var_1').item.json.format_numero }}",
               "type": "string"
             }
           ]
@@ -3546,10 +2401,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        1296,
-        -208
+        5840,
+        1840
       ],
-      "id": "6eab9aa7-a39b-42aa-bce1-2f911b463e65",
+      "id": "d2f4efcc-06e5-4370-8a57-dd3d458ed26a",
       "name": "var_2"
     },
     {
@@ -3579,10 +2434,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.4,
       "position": [
-        1728,
-        -208
+        6272,
+        1840
       ],
-      "id": "cb23f709-c421-4108-a6c5-92b8661a4097",
+      "id": "04c9454c-834c-455c-a869-d27f51c77ca8",
       "name": "direccion corrrecta?"
     },
     {
@@ -3601,21 +2456,18 @@
             }
           ]
         },
-        "limitWaitTime": true,
-        "resumeAmount": 6,
         "options": {
           "formTitle": "=Coloca tu otra direccion {{ $('var_2').item.json.Name }}",
-          "formDescription": "={{ $('var_0').item.json.link_reiniciar_form }}",
           "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
         }
       },
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.5,
       "position": [
-        2080,
-        -48
+        6624,
+        2000
       ],
-      "id": "822f6cae-d667-4246-b219-20ba83a30274",
+      "id": "e4ee40b5-7cf4-42a8-ad5c-7ea88366aee4",
       "name": "Form3",
       "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
     },
@@ -3744,10 +2596,10 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.2,
       "position": [
-        2528,
-        -144
+        7072,
+        1904
       ],
-      "id": "7061bcca-c614-49d3-b5f0-9679e9c4b5bc",
+      "id": "d902d6ba-0c2e-4e8f-a07f-33105131d610",
       "name": "Update record",
       "credentials": {
         "airtableOAuth2Api": {
@@ -3768,28 +2620,21 @@
               "fieldLabel": "Cantidad de bolsas de hielo que desea",
               "fieldType": "number",
               "requiredField": true
-            },
-            {
-              "fieldLabel": "Nota (opcional)",
-              "fieldType": "textarea",
-              "placeholder": "=Escriba aqui alguna indicación o información adicional a tomar en cuenta para su pedido"
             }
           ]
         },
-        "limitWaitTime": true,
-        "resumeAmount": 6,
         "options": {
-          "formDescription": "=Cada bolsa de hielo cuesta S/. 3.5 por mayor y el peso de cada una es de 3.5 kg\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
+          "formDescription": "=Cada bolsa de hielo cuesta S/. 3.5 por mayor y el peso de cada una es de 3.5 kg",
           "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
         }
       },
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.5,
       "position": [
-        6784,
-        32
+        7744,
+        1904
       ],
-      "id": "de3e7f9e-5a73-4191-a516-a9e8ea670e95",
+      "id": "6f1db59b-ae89-449a-a9bb-234f84707dc4",
       "name": "Form4",
       "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
     },
@@ -3834,10 +2679,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        2304,
-        32
+        6880,
+        2080
       ],
-      "id": "353fc60c-3875-4dcf-beec-c8ae0a243412",
+      "id": "142f1c3f-289a-47b0-887a-46948fb4c1a8",
       "name": "info_inicial"
     },
     {
@@ -3887,10 +2732,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        2336,
-        -368
+        6880,
+        1680
       ],
-      "id": "67f4bdd6-3cd5-4eb8-b439-b9f607853f9c",
+      "id": "9d98a682-1031-4bb0-8ceb-4571cd915268",
       "name": "info_inicial1"
     },
     {
@@ -3926,11 +2771,28 @@
               "name": "id_cliente_airtable",
               "value": "",
               "type": "string"
-            },
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        6992,
+        2336
+      ],
+      "id": "884dc283-bec9-4828-9bae-573ff994e230",
+      "name": "info_inicial2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
             {
-              "id": "0e08e9df-cf19-43c7-b02d-0f9dc6400678",
-              "name": "numero",
-              "value": "={{ $json.format_numero }}",
+              "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
+              "name": "format_numero",
+              "value": "=+51{{ $('On form submission').item.json['Tu numero de celular'].toString().slice(-9) }}",
               "type": "string"
             }
           ]
@@ -3940,11 +2802,11 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        2944,
-        528
+        4224,
+        2064
       ],
-      "id": "7320d406-1757-4a12-b9cf-8a76f3d15996",
-      "name": "info_inicial2"
+      "id": "bf8a1f9e-48c2-437d-ab48-7a7e0fe2c2cc",
+      "name": "format_numero"
     },
     {
       "parameters": {
@@ -3958,8 +2820,8 @@
           "conditions": [
             {
               "id": "f2f0686d-b68b-4235-ab53-c1bb182eaf91",
-              "leftValue": "={{ $json.format_dni.toString().length }}",
-              "rightValue": 8,
+              "leftValue": "={{ $json.format_numero.toString().length }}",
+              "rightValue": 12,
               "operator": {
                 "type": "number",
                 "operation": "equals"
@@ -3973,10 +2835,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.4,
       "position": [
-        -128,
-        16
+        4416,
+        2064
       ],
-      "id": "ce4158a9-c046-418c-ac72-0bfb338f57b2",
+      "id": "bbb489a6-db1d-47bb-95ca-30facdea3f8c",
       "name": "valido?"
     },
     {
@@ -3984,26 +2846,24 @@
         "formFields": {
           "values": [
             {
-              "fieldLabel": "Escribe tu DNI",
+              "fieldLabel": "Tu numero de celular",
               "fieldType": "number",
               "requiredField": true
             }
           ]
         },
-        "limitWaitTime": true,
-        "resumeAmount": 6,
         "options": {
-          "formDescription": "=Coloca un DNI valido\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
+          "formDescription": "=Coloca un numero de celular valido",
           "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
         }
       },
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.5,
       "position": [
-        192,
-        96
+        4736,
+        2144
       ],
-      "id": "e7da7f6c-c42a-4a8b-8c5b-8e49742938a7",
+      "id": "f7cb2293-a224-4da0-b5f7-72a31e843e54",
       "name": "Form5",
       "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
     },
@@ -4016,17 +2876,28 @@
               "name": "custom_stylish_form",
               "value": "=:root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors */\n\t--color-background: #454545;\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #fefaf6;\n\t--color-test-notice-border: #f6dcb7;\n\t--color-card-bg: #000000;\n\t--color-card-border: #dbdfe7;\n\t--color-card-shadow: rgba(99, 77, 255, 0.06);\n\t--color-link: #ffffff;\n\t--color-header: #ffffff;\n\t--color-label: #ffffff;\n\t--color-input-border: #dbdfe7;\n\t--color-input-text: #0000000;\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #FFA500;\n\t--color-submit-btn-text: #000000;\n\t--color-error: #ea1f30;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #FFA500;\n\t--color-html-text: #ffffff;\n\t--color-html-link: #ffffff;\n\t--color-header-subtext: #7e8186;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}",
               "type": "string"
-            },
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        4032,
+        2064
+      ],
+      "id": "9db193d9-3405-48b3-bc2e-5ead1914bd68",
+      "name": "var_0"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
             {
-              "id": "d068137b-a64b-46d4-9244-b9469c35f243",
-              "name": "imagen_yaku_rumi",
-              "value": "<img src=\"https://appzipline.yacurumitech.store/u/rLxm3R.jpeg\"       width=\"150\">",
-              "type": "string"
-            },
-            {
-              "id": "ec9eb668-620f-4a5f-85f8-da208ee3bd73",
-              "name": "link_reiniciar_form",
-              "value": "=<p>Psd: Si deseas reiniciar este formulario<a href=\"https://appn8n.yacurumitech.store/form/42175eed-2f79-4951-8b35-5e0846179093\">,haz click aquí</a></p>",
+              "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
+              "name": "format_numero",
+              "value": "=+51{{ $('Form5').item.json['Tu numero de celular'].toString().slice(-9) }}",
               "type": "string"
             }
           ]
@@ -4036,11 +2907,11 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        -512,
-        16
+        4928,
+        2144
       ],
-      "id": "66cb1404-eaa8-4e49-8d47-f81399662b77",
-      "name": "var_0"
+      "id": "58f6ad84-5846-4acb-9f55-1fa071544ec1",
+      "name": "format_numero1"
     },
     {
       "parameters": {
@@ -4089,10 +2960,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        5392,
-        32
+        7488,
+        1904
       ],
-      "id": "71adae5b-9ca7-4ab9-9c40-7dee482bb89d",
+      "id": "8c367390-903d-4acc-98d3-976efe7e30f9",
       "name": "info_inicial_final"
     },
     {
@@ -4107,28 +2978,20 @@
               "fieldLabel": "Cantidad de bolsas de hielo que desea",
               "fieldType": "number",
               "requiredField": true
-            },
-            {
-              "fieldLabel": "Nota (opcional)",
-              "fieldType": "textarea",
-              "placeholder": "=Escriba aqui alguna indicación o información adicional a tomar en cuenta para su pedido"
             }
           ]
         },
-        "limitWaitTime": true,
-        "resumeAmount": 6,
         "options": {
-          "formDescription": "={{ $('var_0').item.json.link_reiniciar_form }}",
           "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
         }
       },
       "type": "n8n-nodes-base.form",
       "typeVersion": 2.5,
       "position": [
-        7552,
-        -272
+        8512,
+        1600
       ],
-      "id": "30613ab6-1b34-4ec3-be8b-0304b00c5147",
+      "id": "f167701b-43d8-4ec0-ba51-ceec89d4faaa",
       "name": "Form6",
       "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
     },
@@ -4141,12 +3004,6 @@
               "name": "cantidad_de_bolsas",
               "value": "={{ $('Form4').item.json['Cantidad de bolsas de hielo que desea'] }}",
               "type": "number"
-            },
-            {
-              "id": "23f20e06-0120-433f-8e07-255eec895756",
-              "name": "nota",
-              "value": "={{ $('Form4').item.json['Nota (opcional)'] }}",
-              "type": "string"
             }
           ]
         },
@@ -4155,10 +3012,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        7024,
-        32
+        7984,
+        1904
       ],
-      "id": "5232d2aa-d57c-454d-9f64-8527980b3b8b",
+      "id": "c66fac97-b31b-4ad5-bf62-551ee429d4f4",
       "name": "cantidad_de_bolsas"
     },
     {
@@ -4188,10 +3045,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.4,
       "position": [
-        7216,
-        32
+        8176,
+        1904
       ],
-      "id": "36c9b604-2ba6-4378-b4b6-ca8bb24ea8ab",
+      "id": "176b857a-b4b0-4800-8f7e-77bb8e854ed3",
       "name": "es igual o menor a 3?"
     },
     {
@@ -4203,12 +3060,6 @@
               "name": "cantidad_de_bolsas",
               "value": "={{ $('Form6').item.json['Cantidad de bolsas de hielo que desea'] }}",
               "type": "number"
-            },
-            {
-              "id": "1b27f66f-d1a6-4c8e-aa95-b6684b4c3a3c",
-              "name": "nota",
-              "value": "={{ $('Form6').item.json['Nota (opcional)'] }}",
-              "type": "string"
             }
           ]
         },
@@ -4217,10 +3068,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        7744,
-        -272
+        8704,
+        1600
       ],
-      "id": "cc4c2f10-3fc7-4415-b7d4-db1fada2e5bb",
+      "id": "13f25bf4-cd5d-4e4c-afe1-1dcc409f5b2f",
       "name": "cantidad_de_bolsas1"
     },
     {
@@ -4232,12 +3083,6 @@
               "name": "cantidad_de_bolsas",
               "value": "={{ $json.cantidad_de_bolsas }}",
               "type": "number"
-            },
-            {
-              "id": "d1b5013d-dde8-4e8d-8c97-0b8eea71e8d8",
-              "name": "nota",
-              "value": "={{ $json.nota }}",
-              "type": "string"
             }
           ]
         },
@@ -4246,10 +3091,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        7520,
-        96
+        8480,
+        1968
       ],
-      "id": "b050250b-529a-4b7b-8ae2-f908dbbb9c86",
+      "id": "f4811fcf-556a-4d2c-88af-a5dcab467c78",
       "name": "cantidad_de_bolsas_final"
     },
     {
@@ -4280,10 +3125,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.4,
       "position": [
-        8000,
-        96
+        8960,
+        1968
       ],
-      "id": "6566695e-3c46-48a2-9164-d2ce68606afc",
+      "id": "573ebca8-3217-4225-891c-2f2197f75786",
       "name": "esta_vacio_id_cliente?"
     },
     {
@@ -4303,10 +3148,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        8704,
-        64
+        9664,
+        1936
       ],
-      "id": "229463d0-972d-4353-8a57-c0cf9428be38",
+      "id": "904604d4-5774-4b62-8413-822f82f58556",
       "name": "id_cliente_final"
     },
     {
@@ -4431,10 +3276,10 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.2,
       "position": [
-        8272,
-        -48
+        9232,
+        1824
       ],
-      "id": "e8c3ad4a-ea85-406a-a171-c34ff1fd734e",
+      "id": "06136380-52a3-4039-ba2e-c923cd0127ea",
       "name": "Create a record1",
       "credentials": {
         "airtableOAuth2Api": {
@@ -4460,10 +3305,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        8512,
-        240
+        9472,
+        2112
       ],
-      "id": "08806741-efbf-4338-b99f-636fffa8ea68",
+      "id": "f59471b9-e4cb-4e20-9b48-7de7cad2f7db",
       "name": "id_cliente"
     },
     {
@@ -4483,10 +3328,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.5,
       "position": [
-        8480,
-        -48
+        9440,
+        1824
       ],
-      "id": "34e86f69-0f06-4afc-b111-a76560459b73",
+      "id": "fd1e9b05-3cc8-4138-8a17-e66e36e6a32b",
       "name": "id_cliente1"
     },
     {
@@ -4628,10 +3473,10 @@
       "type": "n8n-nodes-base.airtable",
       "typeVersion": 2.2,
       "position": [
-        8976,
-        64
+        9936,
+        1936
       ],
-      "id": "ead7ec62-2930-4942-b5ce-f9239a68de27",
+      "id": "26f73c82-f8a7-4b2d-ba5b-293b9e66223a",
       "name": "Pedidos - Create a record",
       "credentials": {
         "airtableOAuth2Api": {
@@ -4639,761 +3484,9 @@
           "name": "airtable_1"
         }
       }
-    },
-    {
-      "parameters": {
-        "content": "## revisar si tiene pedido en prepago",
-        "width": 416
-      },
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        5824,
-        -288
-      ],
-      "id": "a797ae49-5c73-4d5a-867a-42b4dd45beb8",
-      "name": "Sticky Note"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
-              "name": "format_dni",
-              "value": "={{ $('On form submission').item.json['Escribe tu DNI'].toString().slice(-8) }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.5,
-      "position": [
-        -320,
-        16
-      ],
-      "id": "c41b3a17-c870-46c9-97cc-9e9dcfae1cda",
-      "name": "format_dni"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
-              "name": "format_dni",
-              "value": "=+51{{ $('Form5').item.json['Escribe tu DNI'].toString().slice(-9) }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.5,
-      "position": [
-        384,
-        96
-      ],
-      "id": "d39954fa-fb2f-4a0a-914f-d373b5219cf7",
-      "name": "format_dni1"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
-              "name": "format_numero",
-              "value": "=+51{{ $('Form2').item.json['Tu numero de celular'].toString().slice(-9) }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.5,
-      "position": [
-        2032,
-        592
-      ],
-      "id": "3260d80f-7bf1-4421-a123-a23397b2979e",
-      "name": "format_numero4"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 4
-          },
-          "conditions": [
-            {
-              "id": "f2f0686d-b68b-4235-ab53-c1bb182eaf91",
-              "leftValue": "={{ $json.format_numero.toString().length }}",
-              "rightValue": 12,
-              "operator": {
-                "type": "number",
-                "operation": "equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.4,
-      "position": [
-        2224,
-        592
-      ],
-      "id": "d756dcf5-9ad5-4151-8669-81dc61c4b5f3",
-      "name": "valido?2"
-    },
-    {
-      "parameters": {
-        "formFields": {
-          "values": [
-            {
-              "fieldLabel": "Tu numero de celular",
-              "fieldType": "number",
-              "requiredField": true
-            }
-          ]
-        },
-        "limitWaitTime": true,
-        "resumeAmount": 6,
-        "options": {
-          "formDescription": "=Coloca un numero de celular valido\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
-          "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
-        }
-      },
-      "type": "n8n-nodes-base.form",
-      "typeVersion": 2.5,
-      "position": [
-        2544,
-        768
-      ],
-      "id": "5555be92-d7a0-4a9e-bc39-5147831c3aaf",
-      "name": "Form8",
-      "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
-              "name": "format_numero",
-              "value": "=+51{{ $('Form8').item.json['Tu numero de celular'].toString().slice(-9) }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.5,
-      "position": [
-        2736,
-        768
-      ],
-      "id": "c98ffbd1-f1dc-4fe9-9539-8f82546d4858",
-      "name": "format_numero5"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
-              "name": "direccion_1",
-              "value": "={{ $json.direccion_1 }}",
-              "type": "string"
-            },
-            {
-              "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
-              "name": "referencia_1",
-              "value": "={{ $json.referencia_1 }}",
-              "type": "string"
-            },
-            {
-              "id": "bd518f7f-9d78-4105-9048-a0fd0c987685",
-              "name": "Name",
-              "value": "={{ $json.Name }}",
-              "type": "string"
-            },
-            {
-              "id": "f6f84053-f553-4e48-8499-13116707ef3c",
-              "name": "nombre_empresa",
-              "value": "={{ $json.nombre_empresa }}",
-              "type": "string"
-            },
-            {
-              "id": "81ac83bf-e268-4238-951e-d655b5acf132",
-              "name": "id_cliente_airtable",
-              "value": "={{ $json.id_cliente_airtable }}",
-              "type": "string"
-            },
-            {
-              "id": "1d725c14-1019-47b5-9e53-7811339bf305",
-              "name": "numero",
-              "value": "={{ $json.numero }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.5,
-      "position": [
-        2880,
-        -144
-      ],
-      "id": "a070c5ce-dd6e-420c-b08d-f940b5437b26",
-      "name": "info_inicial_final1"
-    },
-    {
-      "parameters": {
-        "formFields": {
-          "values": [
-            {
-              "fieldLabel": "=¿Confirmas que tu celular mencionado arriba es correcto para coordinar el envio?",
-              "fieldType": "radio",
-              "fieldOptions": {
-                "values": [
-                  {
-                    "option": "Si, escríbeme a ese numero"
-                  },
-                  {
-                    "option": "No, quiero cambiar el numero"
-                  }
-                ]
-              },
-              "requiredField": true
-            }
-          ]
-        },
-        "limitWaitTime": true,
-        "resumeAmount": 6,
-        "options": {
-          "formTitle": "=Hola {{ $('var_2').item.json.Name }}!",
-          "formDescription": "=📱 Tu celular: <strong>{{ $('info_inicial_final1').item.json.numero}}</strong>\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
-          "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
-        }
-      },
-      "type": "n8n-nodes-base.form",
-      "typeVersion": 2.5,
-      "position": [
-        3104,
-        -144
-      ],
-      "id": "89533e6b-21f1-4402-8df3-6bf8781343d7",
-      "name": "Form10",
-      "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
-    },
-    {
-      "parameters": {
-        "formFields": {
-          "values": [
-            {
-              "fieldLabel": "=Direccion",
-              "fieldType": "textarea",
-              "requiredField": true
-            }
-          ]
-        },
-        "limitWaitTime": true,
-        "resumeAmount": 6,
-        "options": {
-          "formTitle": "=Coloca tu otro numero {{ $('var_2').item.json.Name }}",
-          "formDescription": "={{ $('var_0').item.json.link_reiniciar_form }}",
-          "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
-        }
-      },
-      "type": "n8n-nodes-base.form",
-      "typeVersion": 2.5,
-      "position": [
-        3680,
-        -32
-      ],
-      "id": "cc435f75-2595-44ce-a59e-69a0ef40c657",
-      "name": "Form11",
-      "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
-    },
-    {
-      "parameters": {
-        "authentication": "airtableOAuth2Api",
-        "operation": "update",
-        "base": {
-          "__rl": true,
-          "value": "appOfjZfaZNzPLsVL",
-          "mode": "list",
-          "cachedResultName": "Inventario Yacu Rumi",
-          "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL"
-        },
-        "table": {
-          "__rl": true,
-          "value": "tblVZXwp2xYvnNCgY",
-          "mode": "list",
-          "cachedResultName": "Clientes",
-          "cachedResultUrl": "https://airtable.com/appOfjZfaZNzPLsVL/tblVZXwp2xYvnNCgY"
-        },
-        "columns": {
-          "mappingMode": "defineBelow",
-          "value": {
-            "id": "={{ $('var_2').item.json.id_cliente_airtable }}",
-            "cel_1": "={{ $json.numero }}"
-          },
-          "matchingColumns": [
-            "id"
-          ],
-          "schema": [
-            {
-              "id": "id",
-              "displayName": "id",
-              "required": false,
-              "defaultMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": false
-            },
-            {
-              "id": "id_cliente",
-              "displayName": "id_cliente",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            },
-            {
-              "id": "DNI",
-              "displayName": "DNI",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Name",
-              "displayName": "Name",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Nombre Empresa",
-              "displayName": "Nombre Empresa",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "cel_1",
-              "displayName": "cel_1",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": false
-            },
-            {
-              "id": "direccion_1",
-              "displayName": "direccion_1",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "referencia_1",
-              "displayName": "referencia_1",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "Pedidos",
-              "displayName": "Pedidos",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "array",
-              "readOnly": false,
-              "removed": true
-            },
-            {
-              "id": "ID_autonumber",
-              "displayName": "ID_autonumber",
-              "required": false,
-              "defaultMatch": false,
-              "canBeUsedToMatch": true,
-              "display": true,
-              "type": "string",
-              "readOnly": true,
-              "removed": true
-            }
-          ],
-          "attemptToConvertTypes": false,
-          "convertFieldsToString": false
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.airtable",
-      "typeVersion": 2.2,
-      "position": [
-        4672,
-        -224
-      ],
-      "id": "8dc8c1e1-9e23-4adc-aadf-2f70456b9776",
-      "name": "Update record1",
-      "credentials": {
-        "airtableOAuth2Api": {
-          "id": "U3oq6D2Bm4IFm5pA",
-          "name": "airtable_1"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
-              "name": "direccion_1",
-              "value": "={{ $('Form11').item.json.Direccion }}",
-              "type": "string"
-            },
-            {
-              "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
-              "name": "referencia_1",
-              "value": "={{ $('Form11').item.json.Referencia }}",
-              "type": "string"
-            },
-            {
-              "id": "33ed4566-420e-48fd-877d-df4c7a65570e",
-              "name": "Name",
-              "value": "={{ $('var_2').item.json.Name }}",
-              "type": "string"
-            },
-            {
-              "id": "251418f9-225e-42c5-b5fe-44f50ed95212",
-              "name": "nombre_empresa",
-              "value": "={{ $('var_2').item.json.nombre_empresa }}",
-              "type": "string"
-            },
-            {
-              "id": "28cc92ae-7934-4616-93c1-f93bcf765be4",
-              "name": "id_cliente_airtable",
-              "value": "={{ $('var_2').item.json.id_cliente_airtable }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.5,
-      "position": [
-        4176,
-        -656
-      ],
-      "id": "2adc511d-9818-46be-8101-d744c3b1df07",
-      "name": "info_inicial3"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
-              "name": "direccion_1",
-              "value": "={{ $('info_inicial_final1').item.json.direccion_1 }}",
-              "type": "string"
-            },
-            {
-              "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
-              "name": "referencia_1",
-              "value": "={{ $('info_inicial_final1').item.json.referencia_1 }}",
-              "type": "string"
-            },
-            {
-              "id": "a941c968-86ff-4db4-979a-cee03aa93ae3",
-              "name": "Name",
-              "value": "={{ $('info_inicial_final1').item.json.Name }}",
-              "type": "string"
-            },
-            {
-              "id": "437e1114-1d28-437e-9758-e4cf15e15634",
-              "name": "nombre_empresa",
-              "value": "={{ $('info_inicial_final1').item.json.nombre_empresa }}",
-              "type": "string"
-            },
-            {
-              "id": "5ec69d5a-0daa-46b2-aca3-7cdb7e1c2b96",
-              "name": "id_cliente_airtable",
-              "value": "={{ $('info_inicial_final1').item.json.id_cliente_airtable }}",
-              "type": "string"
-            },
-            {
-              "id": "30f6e14d-566e-4673-8beb-73e89f119821",
-              "name": "numero",
-              "value": "={{ $('info_inicial_final1').item.json.numero }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.5,
-      "position": [
-        4448,
-        -448
-      ],
-      "id": "c8a04cfb-2f73-4e9d-b3c0-313790d8e6d2",
-      "name": "info_inicial4"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 4
-          },
-          "conditions": [
-            {
-              "id": "ba36557e-ae74-428e-9214-20afbed3a10a",
-              "leftValue": "={{ $('Form10').item.json['¿Confirmas que tu celular mencionado arriba es correcto para coordinar el envio?'] }}",
-              "rightValue": "Si, escríbeme a ese numero",
-              "operator": {
-                "type": "string",
-                "operation": "equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.4,
-      "position": [
-        3312,
-        -144
-      ],
-      "id": "d835d769-f2c7-4dfb-bcda-9aa28b67a7b7",
-      "name": "celular?"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
-              "name": "format_numero",
-              "value": "=+51{{ $('Form11').item.json['Tu numero de celular'].toString().slice(-9) }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.5,
-      "position": [
-        3936,
-        -32
-      ],
-      "id": "490a7ddf-ddec-4242-bcdf-d8cad22c4538",
-      "name": "format_numero6"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 4
-          },
-          "conditions": [
-            {
-              "id": "f2f0686d-b68b-4235-ab53-c1bb182eaf91",
-              "leftValue": "={{ $json.format_numero.toString().length }}",
-              "rightValue": 12,
-              "operator": {
-                "type": "number",
-                "operation": "equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.4,
-      "position": [
-        4128,
-        -32
-      ],
-      "id": "a456b94d-ac10-440f-aab4-551f7bf5352a",
-      "name": "valido?3"
-    },
-    {
-      "parameters": {
-        "formFields": {
-          "values": [
-            {
-              "fieldLabel": "Tu numero de celular",
-              "fieldType": "number",
-              "requiredField": true
-            }
-          ]
-        },
-        "limitWaitTime": true,
-        "resumeAmount": 6,
-        "options": {
-          "formDescription": "=Coloca un numero de celular valido\n\n{{ $('var_0').item.json.link_reiniciar_form }}",
-          "customCss": "={{ $('var_0').item.json.custom_stylish_form }}"
-        }
-      },
-      "type": "n8n-nodes-base.form",
-      "typeVersion": 2.5,
-      "position": [
-        4448,
-        144
-      ],
-      "id": "948a3b30-132d-41e4-89ee-e9ffdd5e2129",
-      "name": "Form9",
-      "webhookId": "ac4703a6-aa96-4cf2-8a74-4b0c8ec400fb"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "b6c79d8a-cecc-4443-967a-afb83302c08a",
-              "name": "format_numero",
-              "value": "=+51{{ $('Form9').item.json['Tu numero de celular'].toString().slice(-9) }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.5,
-      "position": [
-        4640,
-        144
-      ],
-      "id": "4d7578a2-28b7-4725-8e2b-141a9291fce2",
-      "name": "format_numero7"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "d0ca45d6-8f44-4f82-aff3-6d3559319f95",
-              "name": "direccion_1",
-              "value": "={{ $('info_inicial_final1').item.json.direccion_1 }}",
-              "type": "string"
-            },
-            {
-              "id": "7b3684c0-0f53-4cee-8931-e96bd96f98c3",
-              "name": "referencia_1",
-              "value": "={{ $('info_inicial_final1').item.json.referencia_1 }}",
-              "type": "string"
-            },
-            {
-              "id": "a941c968-86ff-4db4-979a-cee03aa93ae3",
-              "name": "Name",
-              "value": "={{ $('info_inicial_final1').item.json.Name }}",
-              "type": "string"
-            },
-            {
-              "id": "437e1114-1d28-437e-9758-e4cf15e15634",
-              "name": "nombre_empresa",
-              "value": "={{ $('info_inicial_final1').item.json.nombre_empresa }}",
-              "type": "string"
-            },
-            {
-              "id": "5ec69d5a-0daa-46b2-aca3-7cdb7e1c2b96",
-              "name": "id_cliente_airtable",
-              "value": "={{ $('info_inicial_final1').item.json.id_cliente_airtable }}",
-              "type": "string"
-            },
-            {
-              "id": "30f6e14d-566e-4673-8beb-73e89f119821",
-              "name": "numero",
-              "value": "={{ $json.format_numero }}",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.5,
-      "position": [
-        4416,
-        -96
-      ],
-      "id": "ed3c75cd-96dd-4d1c-be2b-de44d5062027",
-      "name": "info_inicial5"
     }
   ],
-  "pinData": {
-    "On form submission": [
-      {
-        "json": {
-          "Tu numero de celular": 936639242,
-          "submittedAt": "2026-11-01T15:52:46.741-05:00",
-          "formMode": "production"
-        },
-        "pairedItem": {
-          "item": 0
-        }
-      }
-    ]
-  },
+  "pinData": {},
   "repo_name": "n8n_backups",
   "repo_owner": "Yakurumi61",
   "repo_path": "n8n_personal",
@@ -5417,6 +3510,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2026-11-17T21:52:16.016Z",
-  "versionId": "ea7a4f6d-45ca-49f3-9a00-99b6ec2f15be"
+  "updatedAt": "2026-11-18T17:59:14.937Z",
+  "versionId": "36a47e69-e3ee-4465-af15-9bce5bd93c7a"
 }
